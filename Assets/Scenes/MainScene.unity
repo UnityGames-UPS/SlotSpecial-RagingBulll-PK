@@ -1065,6 +1065,7 @@ GameObject:
   - component: {fileID: 24081298}
   - component: {fileID: 24081300}
   - component: {fileID: 24081301}
+  - component: {fileID: 24081302}
   m_Layer: 5
   m_Name: Coin5
   m_TagString: Untagged
@@ -1149,7 +1150,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1159,7 +1160,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -1194,6 +1195,19 @@ MonoBehaviour:
   StartOnEnable: 0
   AnimationSpeed: 30
   delayBetweenLoop: 0
+--- !u!114 &24081302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24081296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01f62b4bb6f4a16936621b78ba7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsCoinClicked: 0
 --- !u!1 &24210663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,6 +1393,7 @@ GameObject:
   - component: {fileID: 34279870}
   - component: {fileID: 34279872}
   - component: {fileID: 34279873}
+  - component: {fileID: 34279874}
   m_Layer: 5
   m_Name: Coin7
   m_TagString: Untagged
@@ -1463,7 +1478,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1473,7 +1488,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -1508,6 +1523,19 @@ MonoBehaviour:
   StartOnEnable: 0
   AnimationSpeed: 30
   delayBetweenLoop: 0
+--- !u!114 &34279874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34279868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01f62b4bb6f4a16936621b78ba7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsCoinClicked: 0
 --- !u!1 &44423808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,21 +2099,8 @@ MonoBehaviour:
   SocketManager: {fileID: 500036492}
   uiManager: {fileID: 377874625}
   _audioManager: {fileID: 1030743558465206379}
-  BonusOpen_ImageAnimation: {fileID: 314603292}
-  BonusClose_ImageAnimation: {fileID: 1539735767}
-  BonusInBonus_ImageAnimation: {fileID: 987754604}
-  BonusGame_Panel: {fileID: 1378875200}
-  BonusOpeningUI: {fileID: 1825182979}
-  BonusClosingUI: {fileID: 1994055154}
-  BonusInBonusUI: {fileID: 424188383}
-  FSnum_Text: {fileID: 1198610052}
-  BonusOpeningText: {fileID: 678450814}
-  BonusClosingText: {fileID: 1736002322}
-  BonusInBonusText: {fileID: 152723578}
-  BonusWinningsText: {fileID: 24210665}
-  BonusOpeningTitleRT: {fileID: 853441374}
-  BonusInBonusTitleRT: {fileID: 844003233}
-  BonusClosingTitleRT: {fileID: 132914468}
+  FreeSpin_Panel: {fileID: 1378875200}
+  FreeSpinOpeningUI: {fileID: 1825182979}
   MainPopup_Panel: {fileID: 1952695970}
   BonusWinPopup_Object: {fileID: 585363782}
   BonusWinAmount_Text: {fileID: 1950016579}
@@ -2793,6 +2808,7 @@ GameObject:
   - component: {fileID: 85886034}
   - component: {fileID: 85886036}
   - component: {fileID: 85886037}
+  - component: {fileID: 85886038}
   m_Layer: 5
   m_Name: Coin1
   m_TagString: Untagged
@@ -2877,7 +2893,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2887,7 +2903,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -2922,6 +2938,19 @@ MonoBehaviour:
   StartOnEnable: 0
   AnimationSpeed: 30
   delayBetweenLoop: 0
+--- !u!114 &85886038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85886032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01f62b4bb6f4a16936621b78ba7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsCoinClicked: 0
 --- !u!1 &89176533
 GameObject:
   m_ObjectHideFlags: 0
@@ -5166,6 +5195,7 @@ GameObject:
   - component: {fileID: 211948285}
   - component: {fileID: 211948287}
   - component: {fileID: 211948288}
+  - component: {fileID: 211948289}
   m_Layer: 5
   m_Name: Coin6
   m_TagString: Untagged
@@ -5250,7 +5280,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5260,7 +5290,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -5295,6 +5325,19 @@ MonoBehaviour:
   StartOnEnable: 0
   AnimationSpeed: 30
   delayBetweenLoop: 0
+--- !u!114 &211948289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211948283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01f62b4bb6f4a16936621b78ba7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsCoinClicked: 0
 --- !u!1 &216408696
 GameObject:
   m_ObjectHideFlags: 0
@@ -8449,7 +8492,6 @@ MonoBehaviour:
   BlueWild_MultiplierText: {fileID: 10653450}
   YellowWild_MultiplierText: {fileID: 2132420488}
   PurpleWild_MultiplierText: {fileID: 302330746}
-  MiniGamGrayWild_MultiplierTexteDis_Text: {fileID: 0}
   GameRulesPages:
   - {fileID: 1856808253}
   - {fileID: 381132041}
@@ -10772,6 +10814,7 @@ GameObject:
   - component: {fileID: 474694918}
   - component: {fileID: 474694920}
   - component: {fileID: 474694921}
+  - component: {fileID: 474694922}
   m_Layer: 5
   m_Name: Coin9
   m_TagString: Untagged
@@ -10856,7 +10899,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -10866,7 +10909,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -10901,6 +10944,19 @@ MonoBehaviour:
   StartOnEnable: 0
   AnimationSpeed: 30
   delayBetweenLoop: 0
+--- !u!114 &474694922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474694916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01f62b4bb6f4a16936621b78ba7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsCoinClicked: 0
 --- !u!1 &480015481
 GameObject:
   m_ObjectHideFlags: 0
@@ -11463,9 +11519,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotManager: {fileID: 2046803210}
   uiManager: {fileID: 377874625}
-  bonusdata: []
   JSManager: {fileID: 1604285695}
-  testToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MDIyMzU4M2UyYmIxMGQ3NGZlM2IxZiIsInVzZXJuYW1lIjoidGVzdGVyOTkwMCIsInJvbGUiOiJwbGF5ZXIiLCJpYXQiOjE3NDg5MjY1NjMsImV4cCI6MTc0OTUzMTM2M30.jmi_Qfl9M9gDmLe7QdOBLmKLsKyWX7qTxxKqpCbzwcA
+  testToken: d11fe5479be24c8b83d18b712785f9b5
 --- !u!1 &500673622
 GameObject:
   m_ObjectHideFlags: 0
@@ -14536,6 +14591,7 @@ GameObject:
   - component: {fileID: 614816105}
   - component: {fileID: 614816104}
   - component: {fileID: 614816103}
+  - component: {fileID: 614816107}
   m_Layer: 5
   m_Name: Coin8
   m_TagString: Untagged
@@ -14602,7 +14658,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -14612,7 +14668,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -14665,6 +14721,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614816101}
   m_CullTransparentMesh: 1
+--- !u!114 &614816107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614816101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01f62b4bb6f4a16936621b78ba7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsCoinClicked: 0
 --- !u!1 &615025338
 GameObject:
   m_ObjectHideFlags: 0
@@ -14678,6 +14747,7 @@ GameObject:
   - component: {fileID: 615025340}
   - component: {fileID: 615025342}
   - component: {fileID: 615025343}
+  - component: {fileID: 615025344}
   m_Layer: 5
   m_Name: Coin10
   m_TagString: Untagged
@@ -14762,7 +14832,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -14772,7 +14842,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -14807,6 +14877,19 @@ MonoBehaviour:
   StartOnEnable: 0
   AnimationSpeed: 30
   delayBetweenLoop: 0
+--- !u!114 &615025344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615025338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01f62b4bb6f4a16936621b78ba7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsCoinClicked: 0
 --- !u!1 &619959773
 GameObject:
   m_ObjectHideFlags: 0
@@ -26227,6 +26310,7 @@ GameObject:
   - component: {fileID: 1144262576}
   - component: {fileID: 1144262575}
   - component: {fileID: 1144262574}
+  - component: {fileID: 1144262578}
   m_Layer: 5
   m_Name: Coin 12
   m_TagString: Untagged
@@ -26293,7 +26377,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -26303,7 +26387,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -26356,6 +26440,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144262572}
   m_CullTransparentMesh: 1
+--- !u!114 &1144262578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144262572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01f62b4bb6f4a16936621b78ba7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsCoinClicked: 0
 --- !u!1 &1144997358
 GameObject:
   m_ObjectHideFlags: 0
@@ -29590,7 +29687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1262736174
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29598,7 +29695,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262736173}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29606,12 +29703,12 @@ RectTransform:
   - {fileID: 369145556}
   - {fileID: 222096202}
   - {fileID: 1927073555}
-  m_Father: {fileID: 1485219722}
+  m_Father: {fileID: 1287872119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -42.597656, y: -13.429932}
-  m_SizeDelta: {x: 1785.1951, y: 934.25}
+  m_AnchoredPosition: {x: -47.03, y: -13}
+  m_SizeDelta: {x: 1946.25, y: 959.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1262736175
 MonoBehaviour:
@@ -30477,6 +30574,82 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -31.395264}
   m_SizeDelta: {x: 0, y: -62.78953}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1287872118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287872119}
+  - component: {fileID: 1287872121}
+  - component: {fileID: 1287872120}
+  m_Layer: 5
+  m_Name: Bonus Mini Game
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1287872119
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287872118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1262736174}
+  m_Father: {fileID: 1485219722}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1287872120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287872118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6039216}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1287872121
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287872118}
+  m_CullTransparentMesh: 1
 --- !u!1 &1292556809
 GameObject:
   m_ObjectHideFlags: 0
@@ -35241,6 +35414,7 @@ GameObject:
   - component: {fileID: 1448716173}
   - component: {fileID: 1448716175}
   - component: {fileID: 1448716176}
+  - component: {fileID: 1448716177}
   m_Layer: 5
   m_Name: Coin2
   m_TagString: Untagged
@@ -35325,7 +35499,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -35335,7 +35509,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -35370,6 +35544,19 @@ MonoBehaviour:
   StartOnEnable: 0
   AnimationSpeed: 30
   delayBetweenLoop: 0
+--- !u!114 &1448716177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448716171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01f62b4bb6f4a16936621b78ba7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsCoinClicked: 0
 --- !u!1 &1452016331
 GameObject:
   m_ObjectHideFlags: 0
@@ -36259,7 +36446,7 @@ RectTransform:
   - {fileID: 1287483589}
   - {fileID: 29743709}
   - {fileID: 751181197}
-  - {fileID: 1262736174}
+  - {fileID: 1287872119}
   - {fileID: 1378875201}
   - {fileID: 996245527}
   - {fileID: 1595537877}
@@ -46233,6 +46420,7 @@ GameObject:
   - component: {fileID: 1868408551}
   - component: {fileID: 1868408553}
   - component: {fileID: 1868408554}
+  - component: {fileID: 1868408555}
   m_Layer: 5
   m_Name: Coin3
   m_TagString: Untagged
@@ -46317,7 +46505,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -46327,7 +46515,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -46362,6 +46550,19 @@ MonoBehaviour:
   StartOnEnable: 0
   AnimationSpeed: 30
   delayBetweenLoop: 0
+--- !u!114 &1868408555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868408549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01f62b4bb6f4a16936621b78ba7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsCoinClicked: 0
 --- !u!1 &1870614177
 GameObject:
   m_ObjectHideFlags: 0
@@ -50130,6 +50331,129 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7b0009dd51f8148bb8edd692a34dc226, type: 3}
   - {fileID: 21300000, guid: 7ea5f8a5cf0404af6bf31665153f2bcb, type: 3}
   - {fileID: 21300000, guid: 637a1f5ef6044447ba4507b0f1a166ab, type: 3}
+  MinorgameSprites:
+  - {fileID: 21300000, guid: 44f8a10cdeac941f3843455ed442c7e3, type: 3}
+  - {fileID: 21300000, guid: bbf3731450052439d966ddd6fc21449d, type: 3}
+  - {fileID: 21300000, guid: 3968900f0c01b4bdfb1b91289af4ead1, type: 3}
+  - {fileID: 21300000, guid: b5a0b988373a243bf93d6abf6d69fcdc, type: 3}
+  - {fileID: 21300000, guid: d6d978fe1edf049b1b5f945454b26694, type: 3}
+  - {fileID: 21300000, guid: cf732c0f679114bf480e04aa0f7b9933, type: 3}
+  - {fileID: 21300000, guid: 2575c210251964fd6b8f76c5fefcf5c0, type: 3}
+  - {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
+  - {fileID: 21300000, guid: d570c9160b6784468be7e99510e65f55, type: 3}
+  - {fileID: 21300000, guid: 617998155ab454b68980789d68e35af4, type: 3}
+  - {fileID: 21300000, guid: 94d92f1e3448940ac8d2b8ccff71524a, type: 3}
+  - {fileID: 21300000, guid: 65edda251af8c487e86d2dff2f0e4911, type: 3}
+  - {fileID: 21300000, guid: 1619512a8b08e40fa8c68edeac26d9ad, type: 3}
+  - {fileID: 21300000, guid: fea2ce85d140f494faa72e08f7ae523a, type: 3}
+  - {fileID: 21300000, guid: 3aa5d521af66844b8a637e1b391d86d2, type: 3}
+  - {fileID: 21300000, guid: 8311a00742b3e4dd8af744950406fa76, type: 3}
+  - {fileID: 21300000, guid: 27aa52562e2e949fb8e1aa89c6204b6f, type: 3}
+  - {fileID: 21300000, guid: cb701f890153a4bdbbee394e2c189d2a, type: 3}
+  - {fileID: 21300000, guid: 31308d91fdc48460aa390ae8c67f577a, type: 3}
+  - {fileID: 21300000, guid: dbaf0546a0f79416ca02dba2095c464c, type: 3}
+  - {fileID: 21300000, guid: d3c4845bfbaec45f8b797d5c76299dff, type: 3}
+  - {fileID: 21300000, guid: 5fc04616410b54e6db5fa4c8ea328dbb, type: 3}
+  - {fileID: 21300000, guid: 700d2e0e9aaf140deb04d3c0267b8366, type: 3}
+  - {fileID: 21300000, guid: 6b31fe7287c9d4347b2d4dde6634ea39, type: 3}
+  - {fileID: 21300000, guid: 37a2655f211d94648a34b19aa460db2c, type: 3}
+  - {fileID: 21300000, guid: d640c500244414beaaedba026e42e786, type: 3}
+  - {fileID: 21300000, guid: 3a1ddc8b33a404a32b7802f5b04d7e42, type: 3}
+  - {fileID: 21300000, guid: 4f222532ac4f5456bb5f6d33324a0536, type: 3}
+  - {fileID: 21300000, guid: 673ffd4618cad4a61ad84d02cb6aeee4, type: 3}
+  - {fileID: 21300000, guid: 0c9a68334e8474a92918eb62fda5e133, type: 3}
+  - {fileID: 21300000, guid: 61fdd0a530655425caceedd6e8fc0cce, type: 3}
+  - {fileID: 21300000, guid: 2144ea5d2b1274f3cb2776b574af7bd6, type: 3}
+  - {fileID: 21300000, guid: 203aad38bd0e14cf593127b6a6bbef2f, type: 3}
+  - {fileID: 21300000, guid: 655e66cf3d1f544379a2a0aadef2b0ee, type: 3}
+  - {fileID: 21300000, guid: 023037732b5814fe281343cb57f4edf1, type: 3}
+  - {fileID: 21300000, guid: 8f882159238044b9390587ae54799064, type: 3}
+  - {fileID: 21300000, guid: 970797170629642b69388c45d131aa79, type: 3}
+  - {fileID: 21300000, guid: 785c3d66a6aa04dff9c314053bc96cfa, type: 3}
+  - {fileID: 21300000, guid: b944bf6bcbe9f4d3e971dacc2fe8114b, type: 3}
+  - {fileID: 21300000, guid: 12e862c57cf4e40fc9d7470c0f846118, type: 3}
+  MajorgameSprites:
+  - {fileID: 21300000, guid: f1621fbdf7aff4e5390bd165823b7d14, type: 3}
+  - {fileID: 21300000, guid: a71cc6d50320b4e1c8c094124a6f0370, type: 3}
+  - {fileID: 21300000, guid: 84611d391a36c46db9efbfa8275fe9de, type: 3}
+  - {fileID: 21300000, guid: bb48e276f0fdb4bb5b6525ec049a65a5, type: 3}
+  - {fileID: 21300000, guid: a8aafe2ae02d54dea82576e9e918a04f, type: 3}
+  - {fileID: 21300000, guid: b191c7a372e694fe0b44f6fc07df4087, type: 3}
+  - {fileID: 21300000, guid: 20d36dcb394184822a2ba176d23d05cd, type: 3}
+  - {fileID: 21300000, guid: 3dde31266237c4ee9a8370a5b20ee461, type: 3}
+  - {fileID: 21300000, guid: ea89c5fff627c451d8dbd1883aa034cf, type: 3}
+  - {fileID: 21300000, guid: e7d188b3a09af4df5b007b61ef27d712, type: 3}
+  - {fileID: 21300000, guid: c6d09d37a05604a97a2fbcef21662a35, type: 3}
+  - {fileID: 21300000, guid: c37837f66e5ef48e298e1debed1ea625, type: 3}
+  - {fileID: 21300000, guid: 55d1c736d61a64d6ebbd3de29d980f39, type: 3}
+  - {fileID: 21300000, guid: a6dc227a44e744897969a0042dbc4620, type: 3}
+  - {fileID: 21300000, guid: 28763498b5f3a40129235d72ec40cdfe, type: 3}
+  - {fileID: 21300000, guid: 9fb2b9dbc4fc84ba199bf4d3052352f7, type: 3}
+  - {fileID: 21300000, guid: e26684a925dfc47c0a1c333b5b57f8d6, type: 3}
+  - {fileID: 21300000, guid: 28fd101b0adfc4ad9b7b3e2c7968cce6, type: 3}
+  - {fileID: 21300000, guid: bf260768a938f485986a6c3c9cc6eabe, type: 3}
+  - {fileID: 21300000, guid: e738a79051125436eb9ae6fc574aea00, type: 3}
+  - {fileID: 21300000, guid: 215f69d4e278544e3a2e5236bcbd8a13, type: 3}
+  - {fileID: 21300000, guid: 6fd9de0e9510344bdbbc305611acdf5a, type: 3}
+  - {fileID: 21300000, guid: 2d3ca3abd566f488f9e7624514a7ca30, type: 3}
+  - {fileID: 21300000, guid: d5e314ea78dda4576a19514970491f5c, type: 3}
+  - {fileID: 21300000, guid: d5e314ea78dda4576a19514970491f5c, type: 3}
+  - {fileID: 21300000, guid: 1f48f122087e24230b58485a47995db7, type: 3}
+  - {fileID: 21300000, guid: 745e695695a654c1e821bcaf4acbba25, type: 3}
+  - {fileID: 21300000, guid: de9531a0dd7e14542a15d858f60ea04c, type: 3}
+  - {fileID: 21300000, guid: 15544cb6e745d4becbe8ff6ef186d19b, type: 3}
+  - {fileID: 21300000, guid: 1fe7101a6b09f4f1fa649d7017957a67, type: 3}
+  - {fileID: 21300000, guid: 4a49bd9310e394e39a2b996061368663, type: 3}
+  - {fileID: 21300000, guid: 22abf77b60f234181ab497bdea9409bc, type: 3}
+  - {fileID: 21300000, guid: a835f9062539d47de9897dcbdaba8da6, type: 3}
+  - {fileID: 21300000, guid: 2a8d7f054e6aa4cb5a1095cf5ed77470, type: 3}
+  - {fileID: 21300000, guid: 3e72b802dab3b40648d5c7af67b7845e, type: 3}
+  - {fileID: 21300000, guid: 84501fffe158d47deba181305f11ce2c, type: 3}
+  - {fileID: 21300000, guid: a744dcc698c0b4b34a48af0ea085f644, type: 3}
+  - {fileID: 21300000, guid: e47e8682f3a26493abbc5019b9674f9d, type: 3}
+  - {fileID: 21300000, guid: 5edf5e06d9c194d2ea128c0edd481a2d, type: 3}
+  - {fileID: 21300000, guid: 4e9d92e07d5034d6c97626bbfc9d5816, type: 3}
+  GrandgameSprites:
+  - {fileID: 21300000, guid: 839c6530ca0794807b28cbef7ce2aea8, type: 3}
+  - {fileID: 21300000, guid: 637a1f5ef6044447ba4507b0f1a166ab, type: 3}
+  - {fileID: 21300000, guid: 398b16ee28c594de8a10ce3b2f3b9d21, type: 3}
+  - {fileID: 21300000, guid: b1f3d35b00d06495e88d5008630f5996, type: 3}
+  - {fileID: 21300000, guid: 3861b84feae7d4e479cac61a43e74ff8, type: 3}
+  - {fileID: 21300000, guid: 9388b0ac30aa64fef8bfef7f2006713e, type: 3}
+  - {fileID: 21300000, guid: 7a6e1f890951b4be2ace243a61a84a31, type: 3}
+  - {fileID: 21300000, guid: b0d562829eb844945bb06f789c9fe18d, type: 3}
+  - {fileID: 21300000, guid: 10bde0c44d68c4cd4b4fffbba4bd611b, type: 3}
+  - {fileID: 21300000, guid: c7d07a888c2c044bbaff1a43726f47a9, type: 3}
+  - {fileID: 21300000, guid: f3e0a80f244914dd7a7052f3862847a0, type: 3}
+  - {fileID: 21300000, guid: c86d01dfd52a04d2a8104166eee82fc6, type: 3}
+  - {fileID: 21300000, guid: d81f96bd48373444c9142c74addb34fa, type: 3}
+  - {fileID: 21300000, guid: 4dca0e05591934a72aae6f6f9a6c6415, type: 3}
+  - {fileID: 21300000, guid: 6e7595c35ce3a44e1a9d0b6e23a72553, type: 3}
+  - {fileID: 21300000, guid: 292d2b4bda25a43f5959a18e1c9e87fb, type: 3}
+  - {fileID: 21300000, guid: 03efa8ee01f34436da325895c6275674, type: 3}
+  - {fileID: 21300000, guid: 23f2d0f7c72c84234b07f5f83a9e4832, type: 3}
+  - {fileID: 21300000, guid: 104a31ca0bb114cf8a3f7ecc6a879c09, type: 3}
+  - {fileID: 21300000, guid: 0d495b635513244e0a79b898c4ad272d, type: 3}
+  - {fileID: 21300000, guid: ede218728ee684f688662b27fd17de73, type: 3}
+  - {fileID: 21300000, guid: 84b7285f889424945b1d3abf0a6b6ab9, type: 3}
+  - {fileID: 21300000, guid: c2455390c14404798857950460ba90c5, type: 3}
+  - {fileID: 21300000, guid: b08e2364e83ca4ad5baecb531d1a4902, type: 3}
+  - {fileID: 21300000, guid: dacc950e8764b4c6e821afd8600e2164, type: 3}
+  - {fileID: 21300000, guid: 15398dc5fd209459786c934538d2c793, type: 3}
+  - {fileID: 21300000, guid: 383ab7841bd574b06a759800868af8d3, type: 3}
+  - {fileID: 21300000, guid: 724a93d0dafd141daabc8b299be32f38, type: 3}
+  - {fileID: 21300000, guid: 38cdc8007eab24a7c966eba9c62ec2df, type: 3}
+  - {fileID: 21300000, guid: a042b27f3e6a14a4a8a0807e435fae51, type: 3}
+  - {fileID: 21300000, guid: 0400e7101c6194f41b8b773ca2630f2b, type: 3}
+  - {fileID: 21300000, guid: d223039edd8b6479580d2cc117295999, type: 3}
+  - {fileID: 21300000, guid: b277c10334b5f442b8ae659202fc9f20, type: 3}
+  - {fileID: 21300000, guid: 32ba5a47563de4cb6a7f43a4fa4ca929, type: 3}
+  - {fileID: 21300000, guid: 51409aa1908994c0e9e2cf4186e2e791, type: 3}
+  - {fileID: 21300000, guid: 09ef02be795d744abab2ae3c986e57db, type: 3}
+  - {fileID: 21300000, guid: bf2ec946ae05543e28f51d1a46328ea4, type: 3}
+  - {fileID: 21300000, guid: 39d3974a1b69742bfad457121848753f, type: 3}
+  - {fileID: 21300000, guid: 7b0009dd51f8148bb8edd692a34dc226, type: 3}
+  - {fileID: 21300000, guid: 7ea5f8a5cf0404af6bf31665153f2bcb, type: 3}
   Slot_Transform:
   - {fileID: 608900194}
   - {fileID: 196167679}
@@ -50860,7 +51184,7 @@ MonoBehaviour:
   - {fileID: 455125895}
   - {fileID: 725462557}
   SymbolsWinning_Text: {fileID: 1130116814}
-  MiniBonus_Game_Panel: {fileID: 1262736173}
+  MiniBonus_Game_Panel: {fileID: 1287872118}
   Row1Column1_Button: {fileID: 85886036}
   Row1Column2_Button: {fileID: 1448716175}
   Row1Column3_Button: {fileID: 1868408553}
@@ -50875,6 +51199,19 @@ MonoBehaviour:
   Row3Column4_Button: {fileID: 1144262575}
   MiniGame_LeftSpins_Text: {fileID: 222096203}
   MiniGame_LeftSpinsCount: 0
+  MinigameCoinBtns:
+  - {fileID: 85886036}
+  - {fileID: 1448716175}
+  - {fileID: 1868408553}
+  - {fileID: 2138007687}
+  - {fileID: 24081300}
+  - {fileID: 211948287}
+  - {fileID: 34279872}
+  - {fileID: 614816104}
+  - {fileID: 474694920}
+  - {fileID: 615025342}
+  - {fileID: 2119594621}
+  - {fileID: 1144262575}
   Reels:
   - {fileID: 608900198}
   - {fileID: 196167683}
@@ -52346,6 +52683,7 @@ GameObject:
   - component: {fileID: 2119594619}
   - component: {fileID: 2119594621}
   - component: {fileID: 2119594622}
+  - component: {fileID: 2119594623}
   m_Layer: 5
   m_Name: Coin 11
   m_TagString: Untagged
@@ -52430,7 +52768,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -52440,7 +52778,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -52475,6 +52813,19 @@ MonoBehaviour:
   StartOnEnable: 0
   AnimationSpeed: 30
   delayBetweenLoop: 0
+--- !u!114 &2119594623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119594617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01f62b4bb6f4a16936621b78ba7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsCoinClicked: 0
 --- !u!1 &2131229372
 GameObject:
   m_ObjectHideFlags: 0
@@ -52697,6 +53048,7 @@ GameObject:
   - component: {fileID: 2138007688}
   - component: {fileID: 2138007687}
   - component: {fileID: 2138007686}
+  - component: {fileID: 2138007690}
   m_Layer: 5
   m_Name: Coin4
   m_TagString: Untagged
@@ -52763,7 +53115,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -52773,7 +53125,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faab3496bac2341e795bde4fca0f21ea, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -52826,6 +53178,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138007684}
   m_CullTransparentMesh: 1
+--- !u!114 &2138007690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138007684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01f62b4bb6f4a16936621b78ba7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsCoinClicked: 0
 --- !u!1 &2146565542
 GameObject:
   m_ObjectHideFlags: 0

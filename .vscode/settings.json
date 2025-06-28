@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "SlotAS-RagingBull.sln"
+    "dotnet.defaultSolution": "SlotSpecial-RagingBulll-PK.sln"
 }

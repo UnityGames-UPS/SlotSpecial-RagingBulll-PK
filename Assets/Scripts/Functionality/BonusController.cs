@@ -9,21 +9,8 @@ public class BonusController : MonoBehaviour
     [SerializeField] private SocketIOManager SocketManager;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private AudioController _audioManager;
-    [SerializeField] private ImageAnimation BonusOpen_ImageAnimation;
-    [SerializeField] private ImageAnimation BonusClose_ImageAnimation;
-    [SerializeField] private ImageAnimation BonusInBonus_ImageAnimation;
-    [SerializeField] private GameObject BonusGame_Panel;
-    [SerializeField] private GameObject BonusOpeningUI;
-    [SerializeField] private GameObject BonusClosingUI;
-    [SerializeField] private GameObject BonusInBonusUI;
-    [SerializeField] private TMP_Text FSnum_Text;
-    [SerializeField] private TMP_Text BonusOpeningText;
-    [SerializeField] private TMP_Text BonusClosingText;
-    [SerializeField] private TMP_Text BonusInBonusText;
-    [SerializeField] private TMP_Text BonusWinningsText;
-    [SerializeField] private RectTransform BonusOpeningTitleRT;
-    [SerializeField] private RectTransform BonusInBonusTitleRT;
-    [SerializeField] private RectTransform BonusClosingTitleRT;
+    [SerializeField] private GameObject FreeSpin_Panel;
+    [SerializeField] private GameObject FreeSpinOpeningUI;
 
     [Header("Bonus Winning Popup")]
     [SerializeField] private GameObject MainPopup_Panel;
@@ -38,19 +25,18 @@ public class BonusController : MonoBehaviour
 
     [SerializeField] private GameObject BigBullAnimationPanel;
 
-    internal void StartBonus()
+    internal void StartFreeSpin()
     {
-        if (BonusWinningsText) BonusWinningsText.text = "0.00";
-        if (BonusGame_Panel) BonusGame_Panel.SetActive(true);
-        BonusOpeningUI.SetActive(true);
+        if (FreeSpin_Panel) FreeSpin_Panel.SetActive(true);
+        FreeSpinOpeningUI.SetActive(true);
         uiManager.Bg_ThemeImage.sprite = uiManager.BG_ThemeSprites[1];
         uiManager.Reels_BgImage.sprite = uiManager.Reels_BGSprites[1];
         FreeSpinCounts = 0;
         FreeSpinTotalWin = 0;
-        StartCoroutine(BonusGameStartRoutine());
+        StartCoroutine(FreeSpinStartRoutine());
     }
 
-    private IEnumerator BonusGameStartRoutine()
+    private IEnumerator FreeSpinStartRoutine()
     {
 
         yield return new WaitUntil(() => IsWildSelected == true);
@@ -58,21 +44,14 @@ public class BonusController : MonoBehaviour
         yield return new WaitForSeconds(2.8f);
 
         _audioManager.SwitchBGSound(true);
-        if (BonusOpen_ImageAnimation) BonusOpen_ImageAnimation.StartAnimation();
 
         slotManager.StopGameAnimation();
 
-        yield return new WaitUntil(() => BonusOpen_ImageAnimation.rendererDelegate.sprite == BonusOpen_ImageAnimation.textureArray[16]);
 
-        BonusOpeningUI.SetActive(true);
-        BonusOpen_ImageAnimation.PauseAnimation();
+        FreeSpinOpeningUI.SetActive(true);
         // yield return StartCoroutine(TextAnimation(BonusOpeningText, BonusOpeningTitleRT, spins, 0, true));
-        BonusOpeningUI.SetActive(false);
+        FreeSpinOpeningUI.SetActive(false);
         BigBullAnimationPanel.SetActive(false);
-        BonusOpen_ImageAnimation.ResumeAnimation();
-
-        yield return new WaitUntil(() => BonusOpen_ImageAnimation.rendererDelegate.sprite == BonusOpen_ImageAnimation.textureArray[BonusOpen_ImageAnimation.textureArray.Count - 1]);
-        BonusOpen_ImageAnimation.StopAnimation();
 
         yield return new WaitForSeconds(1f);
 
@@ -81,30 +60,30 @@ public class BonusController : MonoBehaviour
 
     }
 
-    internal IEnumerator BonusInBonus()
-    {
-        BonusInBonus_ImageAnimation.StartAnimation();
+    // internal IEnumerator BonusInBonus()
+    // {
+    //     BonusInBonus_ImageAnimation.StartAnimation();
 
-        yield return new WaitUntil(() => BonusInBonus_ImageAnimation.rendererDelegate.sprite == BonusInBonus_ImageAnimation.textureArray[5]);
+    //     yield return new WaitUntil(() => BonusInBonus_ImageAnimation.rendererDelegate.sprite == BonusInBonus_ImageAnimation.textureArray[5]);
 
-        BonusInBonusUI.SetActive(true);
-        BonusInBonus_ImageAnimation.PauseAnimation();
+    //     BonusInBonusUI.SetActive(true);
+    //     BonusInBonus_ImageAnimation.PauseAnimation();
 
-        if (!int.TryParse(FSnum_Text.text, out int currFS)) Debug.LogError("error while conversion");
+    //     if (!int.TryParse(FSnum_Text.text, out int currFS)) Debug.LogError("error while conversion");
 
-        //FSnum_Text.text = SocketManager.resultData.freeSpins.count.ToString();
+    //     //FSnum_Text.text = SocketManager.resultData.freeSpins.count.ToString();
 
-        yield return StartCoroutine(TextAnimation(BonusInBonusText, BonusInBonusTitleRT, SocketManager.resultData.freeSpins.count - currFS, 0, true));
-        BonusInBonusUI.SetActive(false);
-        BonusInBonus_ImageAnimation.ResumeAnimation();
+    //     yield return StartCoroutine(TextAnimation(BonusInBonusText, BonusInBonusTitleRT, SocketManager.resultData.features.freeSpin.count - currFS, 0, true));
+    //     BonusInBonusUI.SetActive(false);
+    //     BonusInBonus_ImageAnimation.ResumeAnimation();
 
-        yield return new WaitUntil(() => BonusInBonus_ImageAnimation.rendererDelegate.sprite == BonusInBonus_ImageAnimation.textureArray[BonusInBonus_ImageAnimation.textureArray.Count - 1]);
-        BonusInBonus_ImageAnimation.StopAnimation();
+    //     yield return new WaitUntil(() => BonusInBonus_ImageAnimation.rendererDelegate.sprite == BonusInBonus_ImageAnimation.textureArray[BonusInBonus_ImageAnimation.textureArray.Count - 1]);
+    //     BonusInBonus_ImageAnimation.StopAnimation();
 
-        yield return new WaitForSeconds(1f);
+    //     yield return new WaitForSeconds(1f);
 
-        slotManager.FreeSpin(SocketManager.resultData.freeSpins.count);
-    }
+    //     slotManager.FreeSpin(SocketManager.resultData.features.freeSpin.count);
+    // }
 
     internal IEnumerator BonusGameEndRoutine(bool IsfreeSpin, double WinAmount)
     {
@@ -141,31 +120,7 @@ public class BonusController : MonoBehaviour
            yield return new WaitForSeconds(3f);
             MainPopup_Panel.SetActive(false);
             BonusWinPopup_Object.SetActive(false);
-        yield return null;
-        // BonusClose_ImageAnimation.StartAnimation();
-
-        // if(!double.TryParse(BonusWinningsText.text, out double totalWin))
-        // {
-        //     Debug.LogError("error while conversion");
-        // }
-
-        // if (totalWin > 0)
-        // {
-        //     yield return new WaitUntil(() => BonusClose_ImageAnimation.rendererDelegate.sprite == BonusClose_ImageAnimation.textureArray[6]);
-
-        //     BonusClosingUI.SetActive(true);
-        //     BonusClose_ImageAnimation.PauseAnimation();
-        //     yield return StartCoroutine(TextAnimation(BonusClosingText, BonusClosingTitleRT, 0, totalWin));
-        //     BonusClosingUI.SetActive(false);
-        //     BonusClose_ImageAnimation.ResumeAnimation();
-        // }
-        // slotManager.StopGameAnimation();
-        // yield return new WaitUntil(()=> BonusClose_ImageAnimation.rendererDelegate.sprite == BonusClose_ImageAnimation.textureArray[BonusClose_ImageAnimation.textureArray.Count-1]);
-        // BonusClose_ImageAnimation.StopAnimation();
-        // _audioManager.SwitchBGSound(false);
-
-        // if (BonusGame_Panel) BonusGame_Panel.SetActive(false);
-        // BonusWinningsText.text = "0";
+         yield return null;
     }
 
     private IEnumerator TextAnimation(TMP_Text textObject, RectTransform imageObject, int IntGoal, double DoubleGoal, bool spin = false)

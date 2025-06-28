@@ -45,19 +45,22 @@ public class ImageAnimation : MonoBehaviour
 
 	private void AnimationProcess()
 	{
-		SetTextureOfIndex();
-		indexOfTexture++;
-		if (indexOfTexture == textureArray.Count)
+		if (textureArray.Count > 0)
 		{
-			indexOfTexture = 0;
-			if (doLoopAnimation)
+			SetTextureOfIndex();
+			indexOfTexture++;
+			if (indexOfTexture == textureArray.Count)
 			{
-				Invoke("AnimationProcess", delayBetweenAnimation + delayBetweenLoop);
+				indexOfTexture = 0;
+				if (doLoopAnimation)
+				{
+					Invoke("AnimationProcess", delayBetweenAnimation + delayBetweenLoop);
+				}
 			}
-		}
-		else
-		{
-			Invoke("AnimationProcess", delayBetweenAnimation);
+			else
+			{
+				Invoke("AnimationProcess", delayBetweenAnimation);
+			}
 		}
 	}
 
@@ -95,7 +98,10 @@ public class ImageAnimation : MonoBehaviour
 	{
 		if (currentAnimationState != 0)
 		{
-			rendererDelegate.sprite = textureArray[0];
+			if (textureArray != null && textureArray.Count > 0)
+			{
+				rendererDelegate.sprite = textureArray[0];
+			}
 			CancelInvoke("AnimationProcess");
 			currentAnimationState = ImageState.NONE;
 		}
@@ -109,13 +115,15 @@ public class ImageAnimation : MonoBehaviour
 
 	private void SetTextureOfIndex()
 	{
-		if (useSharedMaterial)
+		if (indexOfTexture >= 0 && indexOfTexture < textureArray.Count)
 		{
 			rendererDelegate.sprite = textureArray[indexOfTexture];
 		}
 		else
 		{
-			rendererDelegate.sprite = textureArray[indexOfTexture];
+			//rendererDelegate.sprite = textureArray[indexOfTexture];
+			Debug.LogError($"Texture index out of range: {indexOfTexture} for array size {textureArray.Count}");
+    
 		}
 	}
 }

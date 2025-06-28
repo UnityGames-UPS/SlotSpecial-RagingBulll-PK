@@ -123,7 +123,7 @@ public class UIManager : MonoBehaviour
         if (LBExit_Button) LBExit_Button.onClick.AddListener(delegate { ClosePopup(LBPopup_Object); });
 
         if (CloseDisconnect_Button) CloseDisconnect_Button.onClick.RemoveAllListeners();
-        if (CloseDisconnect_Button) CloseDisconnect_Button.onClick.AddListener(delegate { CallOnExitFunction(); socketManager.ReactNativeCallOnFailedToConnect(); }); //BackendChanges
+        if (CloseDisconnect_Button) CloseDisconnect_Button.onClick.AddListener(delegate { CallOnExitFunction(); }); //BackendChanges
 
         if (Sound_Button) Sound_Button.onClick.RemoveAllListeners();
         if (Sound_Button) Sound_Button.onClick.AddListener(delegate
@@ -485,9 +485,8 @@ public class UIManager : MonoBehaviour
         OpenPopup(ADPopup_Object);
     }
 
-    internal void InitialiseUIData(string SupportUrl, string AbtImgUrl, string TermsUrl, string PrivacyUrl, Paylines symbolsText)
+    internal void InitialiseUIData(Paylines symbolsText)
     {
-        StartCoroutine(DownloadImage(AbtImgUrl));
         PopulateSymbolsPayout(symbolsText);
     }
 
@@ -496,37 +495,37 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < SymbolsText.Count; i++)
         {
             string text = null;
-            if (paylines.symbols[i].Multiplier[0][0] != 0)
+            if (paylines.symbols[i].multiplier[0] != 0)
             {
-                text += "5x - " + paylines.symbols[i].Multiplier[0][0] + "x";
+                text += "5x - " + paylines.symbols[i].multiplier[0] + "x";
             }
-            if (paylines.symbols[i].Multiplier[1][0] != 0)
+            if (paylines.symbols[i].multiplier[1] != 0)
             {
-                text += "\n4x - " + paylines.symbols[i].Multiplier[1][0] + "x";
+                text += "\n4x - " + paylines.symbols[i].multiplier[1] + "x";
             }
-            if (paylines.symbols[i].Multiplier[2][0] != 0)
+            if (paylines.symbols[i].multiplier[2] != 0)
             {
-                text += "\n3x - " + paylines.symbols[i].Multiplier[2][0] + "x";
+                text += "\n3x - " + paylines.symbols[i].multiplier[2] + "x";
             }
             if (SymbolsText[i]) SymbolsText[i].text = text;
         }
 
         for (int i = 0; i < paylines.symbols.Count; i++)
         {
-            if (paylines.symbols[i].Name.ToUpper() == "FREESPIN")
+            if (paylines.symbols[i].name.ToUpper() == "FREESPIN")
             {
                 if (FreeSpin_Text) FreeSpin_Text.text = paylines.symbols[i].description.ToString();
             }
-            if (paylines.symbols[i].Name.ToUpper() == "SCATTER")
+            if (paylines.symbols[i].name.ToUpper() == "SCATTER")
             {
                 if (Jackpot_Text) Jackpot_Text.text = paylines.symbols[i].description.ToString();
             }
-            if (paylines.symbols[i].Name.ToUpper() == "WILD")
+            if (paylines.symbols[i].name.ToUpper() == "WILD")
             {
                 if (Wild_Text) Wild_Text.text = paylines.symbols[i].description.ToString();
             }
 
-            if (paylines.symbols[i].Name.ToUpper() == "POT")
+            if (paylines.symbols[i].name.ToUpper() == "POT")
             {
                 if (MiniGameDis_Text) MiniGameDis_Text.text = paylines.symbols[i].description.ToString();
             }
@@ -539,19 +538,19 @@ public class UIManager : MonoBehaviour
      public void SetWildMultiplierData()
     {
         //Set Free Spins Data
-        if (GrayWild_MultiplierText) GrayWild_MultiplierText.text = socketManager.initialData.freespinOptions[0].count.ToString() +" Free Spins "+"\n"+ string.Join("x, ", socketManager.initialData.freespinOptions[0].multiplier) +"x Multiplier";
-        if (RedWild_MultiplierText) RedWild_MultiplierText.text = socketManager.initialData.freespinOptions[1].count.ToString() + " Free Spins " + "\n" + string.Join("x, ", socketManager.initialData.freespinOptions[1].multiplier) + "x Multiplier";
-        if (OrangeWild_MultiplierText) OrangeWild_MultiplierText.text = socketManager.initialData.freespinOptions[2].count.ToString()+ " Free Spins " + "\n"+ string.Join("x, ", socketManager.initialData.freespinOptions[2].multiplier)+ "x Multiplier";
-        if (PurpleWild_MultiplierText) PurpleWild_MultiplierText.text = socketManager.initialData.freespinOptions[3].count.ToString()+ " Free Spins " + "\n"+ string.Join("x, ", socketManager.initialData.freespinOptions[3].multiplier)+ "x Multiplier";
-        if (BlueWild_MultiplierText) BlueWild_MultiplierText.text = socketManager.initialData.freespinOptions[4].count.ToString()+ " Free Spins " + "\n"+ string.Join("x, ", socketManager.initialData.freespinOptions[4].multiplier)+ "x Multiplier";
-        if (YellowWild_MultiplierText) YellowWild_MultiplierText.text = socketManager.initialData.freespinOptions[5].count.ToString()+ " Free Spins " + "\n"+ string.Join("x, ", socketManager.initialData.freespinOptions[5].multiplier)+ "x Multiplier";
+        if (GrayWild_MultiplierText) GrayWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[0].count.ToString() +" Free Spins "+"\n"+ string.Join("x, ", socketManager.initialData.features.freespinOptions[0].multiplier) +"x Multiplier";
+        if (RedWild_MultiplierText) RedWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[1].count.ToString() + " Free Spins " + "\n" + string.Join("x, ", socketManager.initialData.features.freespinOptions[1].multiplier) + "x Multiplier";
+        if (OrangeWild_MultiplierText) OrangeWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[2].count.ToString()+ " Free Spins " + "\n"+ string.Join("x, ", socketManager.initialData.features.freespinOptions[2].multiplier)+ "x Multiplier";
+        if (PurpleWild_MultiplierText) PurpleWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[3].count.ToString()+ " Free Spins " + "\n"+ string.Join("x, ", socketManager.initialData.features.freespinOptions[3].multiplier)+ "x Multiplier";
+        if (BlueWild_MultiplierText) BlueWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[4].count.ToString()+ " Free Spins " + "\n"+ string.Join("x, ", socketManager.initialData.features.freespinOptions[4].multiplier)+ "x Multiplier";
+        if (YellowWild_MultiplierText) YellowWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[5].count.ToString()+ " Free Spins " + "\n"+ string.Join("x, ", socketManager.initialData.features.freespinOptions[5].multiplier)+ "x Multiplier";
     }
 
     public void SetJackPotData()
     {
-       MinorWin_Text.text= socketManager.initialData.jackpotMultipliers[0].ToString()+" x Total Bet";
-        MajorWin_Text.text = socketManager.initialData.jackpotMultipliers[1].ToString() +" x Total Bet";
-        GrandWin_Text.text=socketManager.initialData.jackpotMultipliers[2].ToString()+ " x Total Bet ";
+       MinorWin_Text.text= socketManager.initialData.features.jackpotMultipliers[0].ToString()+" x Total Bet";
+        MajorWin_Text.text = socketManager.initialData.features.jackpotMultipliers[1].ToString() +" x Total Bet";
+        GrandWin_Text.text=socketManager.initialData.features.jackpotMultipliers[2].ToString()+ " x Total Bet ";
     }
 
     private void CallOnExitFunction()
