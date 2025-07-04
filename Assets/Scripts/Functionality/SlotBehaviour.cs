@@ -51,8 +51,6 @@ public class SlotBehaviour : MonoBehaviour
     [SerializeField] private Button Turbo_Button;
     [SerializeField] private Button StopSpin_Button;
     [Header("Animated Sprites")]
-    [SerializeField] private Sprite[] Bonus_Sprite;
-    [SerializeField] private Sprite[] Cleopatra_Sprite;
     [SerializeField] Sprite TurboToggleSprite;
 
     [Header("Miscellaneous UI")]
@@ -825,7 +823,7 @@ public class SlotBehaviour : MonoBehaviour
     private void StartSlots(bool autoSpin = false, bool bonus = false)
     {
         if (audioController) audioController.PlaySpinButtonAudio();
-
+        ResetSymbolsSize();
         if (!autoSpin)
         {
             if (AutoSpinRoutine != null)
@@ -917,6 +915,10 @@ public class SlotBehaviour : MonoBehaviour
                 print("image loc: " + j + " " + i);
                 Tempimages[j].slotImages[i].sprite = myImages[resultNum];
                 PopulateAnimationSprites(Tempimages[j].slotImages[i].GetComponent<ImageAnimation>(), resultNum);
+                if (resultNum == 11)
+                {
+                    Tempimages[j].slotImages[i].gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(335, 335);
+                }
 
             }
         }
@@ -980,20 +982,19 @@ public class SlotBehaviour : MonoBehaviour
         yield return new WaitUntil(() => !CheckPopups);
         //  SymbolsToEmitAnimPanel.SetActive(false);
         if (SocketManager.resultData.features.bonus.isTriggered)
-        {
+        {           
             yield return new WaitForSeconds(1f);
             SkipSymbolsEmitedAniamiton();
-            CheckPopups = true;
+           // StopCoroutine(BoxRoutine());
             SetMiniGameButtonsInteractable(true);
             MiniBonus_Game_Panel.SetActive(true);
             MiniGame_LeftSpinsCount = 5;
             MiniGame_LeftSpins_Text.text = MiniGame_LeftSpinsCount.ToString() + " Chances Left";
-
+            CheckPopups = true;
         }
         yield return new WaitUntil(() => !CheckPopups);
         if (!SymbolsToEmitAnimPanel.activeInHierarchy && SocketManager.resultData.payload.wins.Count > 0) SymbolsToEmitAnimPanel.SetActive(true);
 
-        Debug.Log($"@@@@ bonus game checkpopup is : " + CheckPopups);
         if (bonus) _bonusManager.FreeSpinTotalWin += SocketManager.resultData.payload.winAmount;
         Debug.Log($"Current Free Spin Winning :" + _bonusManager.FreeSpinTotalWin);
 
@@ -1503,6 +1504,7 @@ public class SlotBehaviour : MonoBehaviour
         if (BOXCORoutine != null) StopCoroutine(BOXCORoutine);
         SymbolsToEmitAnimPanel.SetActive(false);
         CheckPopups = false;
+        Debug.Log($"@@@@@@@ checkpoup is  skipemited symbol  "+ CheckPopups);
     }
     #region TweeningCode
     private void InitializeTweening(Transform slotTransform)
@@ -1631,6 +1633,18 @@ public class SlotBehaviour : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
     }
+
+    private void ResetSymbolsSize()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j =0; j < 3; j++)
+            {
+                Tempimages[i].slotImages[j].gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(250f, 250f);
+            }
+        }
+    }
+    
 
 }
 

@@ -166,7 +166,7 @@ public class SocketIOManager : MonoBehaviour
     gameSocket.On<string>(SocketIOEventTypes.Error, OnError);
     gameSocket.On<string>("game:init", OnListenEvent);
     gameSocket.On<string>("result", OnResult);
-    gameSocket.On<string>("bonus:result", OnResult);
+  //  gameSocket.On<string>("bonus:result", OnResult);
     gameSocket.On<bool>("socketState", OnSocketState);
     gameSocket.On<string>("internalError", OnSocketError);
     gameSocket.On<string>("alert", OnSocketAlert);

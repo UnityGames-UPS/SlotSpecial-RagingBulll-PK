@@ -423,26 +423,34 @@ public class UIManager : MonoBehaviour
         StartPopupAnim(winAmount);
     }
 
-    void SkipWin(){
-        if(ImageScaleTween!=null){
-            ImageScaleTween.Kill();
-            ImageScaleTween=null;
+    void SkipWin()
+    {
+        if (MainPopup_Object.activeInHierarchy)
+        {
+            if (ImageScaleTween != null)
+            {
+                ImageScaleTween.Kill();
+                ImageScaleTween = null;
+            }
+            if (JackpotImageAnimation.currentAnimationState == ImageAnimation.ImageState.PLAYING)
+            {
+                JackpotImageAnimation.StopAnimation();
+            }
+            if (AnimationScaleTween != null)
+            {
+                AnimationScaleTween.Kill();
+                AnimationScaleTween = null;
+            }
+            if (DelayTween != null)
+            {
+                DelayTween.Kill();
+                DelayTween = null;
+            }
+            ClosePopup(WinPopup_Object);
+            // Win_Image.rectTransform.DOScale(Vector3.zero, .2f).SetEase(Ease.InBack).OnComplete(() => ClosePopup(WinPopup_Object));
+            // WinBgAnimation.DOScale(Vector3.zero, .2f).SetEase(Ease.InBack).OnComplete(()=> ImageRotationTween.Kill());
+            slotManager.CheckPopups = false;
         }
-        if(JackpotImageAnimation.currentAnimationState == ImageAnimation.ImageState.PLAYING){
-            JackpotImageAnimation.StopAnimation();
-        }   
-        if(AnimationScaleTween!=null){
-            AnimationScaleTween.Kill();
-            AnimationScaleTween=null;
-        }
-        if(DelayTween!=null){
-            DelayTween.Kill();
-            DelayTween=null;
-        }
-        ClosePopup(WinPopup_Object);
-       // Win_Image.rectTransform.DOScale(Vector3.zero, .2f).SetEase(Ease.InBack).OnComplete(() => ClosePopup(WinPopup_Object));
-        // WinBgAnimation.DOScale(Vector3.zero, .2f).SetEase(Ease.InBack).OnComplete(()=> ImageRotationTween.Kill());
-        slotManager.CheckPopups = false;
     }
     private void StartPopupAnim(double amount)
     {
@@ -472,12 +480,12 @@ public class UIManager : MonoBehaviour
 
 
         double initAmount = 0;
-        WinPopupTextTween = DOTween.To(() => initAmount, (val) => initAmount = val, amount, 3.5f).OnUpdate(() =>
+        WinPopupTextTween = DOTween.To(() => initAmount, (val) => initAmount = val, amount, 2f).OnUpdate(() =>
         {
             if (Win_Text) Win_Text.text = initAmount.ToString("F3");
         });
 
-        Invoke("SkipWin", 4f);
+        Invoke("SkipWin", 2.8f);
     }
 
     internal void ADfunction()
