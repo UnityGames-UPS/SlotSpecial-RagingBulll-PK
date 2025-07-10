@@ -60,31 +60,6 @@ public class BonusController : MonoBehaviour
 
     }
 
-    // internal IEnumerator BonusInBonus()
-    // {
-    //     BonusInBonus_ImageAnimation.StartAnimation();
-
-    //     yield return new WaitUntil(() => BonusInBonus_ImageAnimation.rendererDelegate.sprite == BonusInBonus_ImageAnimation.textureArray[5]);
-
-    //     BonusInBonusUI.SetActive(true);
-    //     BonusInBonus_ImageAnimation.PauseAnimation();
-
-    //     if (!int.TryParse(FSnum_Text.text, out int currFS)) Debug.LogError("error while conversion");
-
-    //     //FSnum_Text.text = SocketManager.resultData.freeSpins.count.ToString();
-
-    //     yield return StartCoroutine(TextAnimation(BonusInBonusText, BonusInBonusTitleRT, SocketManager.resultData.features.freeSpin.count - currFS, 0, true));
-    //     BonusInBonusUI.SetActive(false);
-    //     BonusInBonus_ImageAnimation.ResumeAnimation();
-
-    //     yield return new WaitUntil(() => BonusInBonus_ImageAnimation.rendererDelegate.sprite == BonusInBonus_ImageAnimation.textureArray[BonusInBonus_ImageAnimation.textureArray.Count - 1]);
-    //     BonusInBonus_ImageAnimation.StopAnimation();
-
-    //     yield return new WaitForSeconds(1f);
-
-    //     slotManager.FreeSpin(SocketManager.resultData.features.freeSpin.count);
-    // }
-
     internal IEnumerator BonusGameEndRoutine(bool IsfreeSpin, double WinAmount)
     {
 
@@ -95,7 +70,7 @@ public class BonusController : MonoBehaviour
                 MainPopup_Panel.SetActive(true);
                 BonusWinPopup_Object.SetActive(true);
                 double currentValue = 0;
-                DOTween.To(() => currentValue, x => currentValue = x, FreeSpinTotalWin, 2f)
+                DOTween.To(() => currentValue, x => currentValue = x, FreeSpinTotalWin, 1.7f)
                .OnUpdate(() =>
                {
                    if (BonusWinAmount_Text) BonusWinAmount_Text.text = currentValue.ToString("f3");
@@ -109,7 +84,7 @@ public class BonusController : MonoBehaviour
             MainPopup_Panel.SetActive(true);
             BonusWinPopup_Object.SetActive(true);
             double currentValue = 0;
-            DOTween.To(() => currentValue, x => currentValue = x, WinAmount, 2f)
+            DOTween.To(() => currentValue, x => currentValue = x, WinAmount, 1.7f)
            .OnUpdate(() =>
            {
                if (BonusWinAmount_Text) BonusWinAmount_Text.text = currentValue.ToString("f3");

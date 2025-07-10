@@ -276,6 +276,7 @@ public class SlotBehaviour : MonoBehaviour
         {
             uiManager.CanCloseMenu();
             StopAutoSpin(false);
+            WasAutoSpinOn = false;
         });
 
         if (SkipWinAnimation_Button) SkipWinAnimation_Button.onClick.RemoveAllListeners();

@@ -13900,7 +13900,7 @@ MonoBehaviour:
   slotManager: {fileID: 2046803210}
   uiManager: {fileID: 377874625}
   JSManager: {fileID: 1604285695}
-  testToken: 8775e420097e42e8980d2a137b42dadc
+  testToken: cafc5fbdb6444fbd8b5c277d318b6c6e
 --- !u!1 &500673622
 GameObject:
   m_ObjectHideFlags: 0
@@ -58490,7 +58490,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4e9d92e07d5034d6c97626bbfc9d5816, type: 3}
   GrandgameSprites:
   - {fileID: 21300000, guid: 839c6530ca0794807b28cbef7ce2aea8, type: 3}
-  - {fileID: 21300000, guid: 637a1f5ef6044447ba4507b0f1a166ab, type: 3}
   - {fileID: 21300000, guid: 398b16ee28c594de8a10ce3b2f3b9d21, type: 3}
   - {fileID: 21300000, guid: b1f3d35b00d06495e88d5008630f5996, type: 3}
   - {fileID: 21300000, guid: 3861b84feae7d4e479cac61a43e74ff8, type: 3}
@@ -58529,6 +58528,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 39d3974a1b69742bfad457121848753f, type: 3}
   - {fileID: 21300000, guid: 7b0009dd51f8148bb8edd692a34dc226, type: 3}
   - {fileID: 21300000, guid: 7ea5f8a5cf0404af6bf31665153f2bcb, type: 3}
+  - {fileID: 21300000, guid: 637a1f5ef6044447ba4507b0f1a166ab, type: 3}
   Slot_Transform:
   - {fileID: 608900194}
   - {fileID: 196167679}
