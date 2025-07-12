@@ -22,7 +22,7 @@ public class SocketIOManager : MonoBehaviour
   private Socket gameSocket; //BackendChanges
   private SocketManager manager;
   protected string SocketURI = null;
-  protected string TestSocketURI = "https://mx2md3l5-5000.inc1.devtunnels.ms/";
+  protected string TestSocketURI = "https://sl3l5zz3-5000.inc1.devtunnels.ms/";
   //protected string TestSocketURI = "http://localhost:5002/";
   [SerializeField] internal JSFunctCalls JSManager;
   [SerializeField] private string testToken;

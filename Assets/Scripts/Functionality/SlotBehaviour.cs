@@ -564,8 +564,8 @@ public class SlotBehaviour : MonoBehaviour
     internal void FreeSpin(int spins)
     {
 
-        if (!IsFreeSpin)
-        {
+        // if (!IsFreeSpin)
+        // {
             if (FSnum_text) FSnum_text.text = spins.ToString();
             IsFreeSpin = true;
             ToggleButtonGrp(false);
@@ -576,7 +576,7 @@ public class SlotBehaviour : MonoBehaviour
                 FreeSpinRoutine = null;
             }
             FreeSpinRoutine = StartCoroutine(FreeSpinCoroutine(spins));
-        }
+       // }
     }
 
     private IEnumerator FreeSpinCoroutine(int spinchances)
@@ -600,6 +600,7 @@ public class SlotBehaviour : MonoBehaviour
         }
         IsFreeSpin = false;
         yield return _bonusManager.BonusGameEndRoutine(true, 0);
+      // if(_bonusManager.FreeSpinTotalWin>0) audioController.PlayWLAudio("megaWin");
         if (Balance_text) Balance_text.text = SocketManager.playerdata.balance.ToString("f3");
         FreeSpinPanel.SetActive(false);
         myImages[11] = WildTypesImages[1];
@@ -809,13 +810,13 @@ public class SlotBehaviour : MonoBehaviour
                 animScript.AnimationSpeed = 8f;
                 break;
 
-            case 12:
-                for (int i = 0; i < Scatter_Sprite.Length; i++)
-                {
-                    animScript.textureArray.Add(Scatter_Sprite[i]);
-                }
-                animScript.AnimationSpeed = 10f;
-                break;
+            // case 12:
+            //     for (int i = 0; i < Scatter_Sprite.Length; i++)
+            //     {
+            //         animScript.textureArray.Add(Scatter_Sprite[i]);
+            //     }
+            //     animScript.AnimationSpeed = 10f;
+            //     break;
 
         }
     }
@@ -1017,8 +1018,8 @@ public class SlotBehaviour : MonoBehaviour
         if (SocketManager.resultData.features.freeSpin.isTriggered)
         {
             Debug.Log(IsFreeSpin ? "Bonus In Bonus" : "First Time Bonus");
-            ToggleButtonGrp(false);
 
+            ToggleButtonGrp(false);
             yield return new WaitForSeconds(1f);
 
             if (!IsFreeSpin)
@@ -1027,6 +1028,7 @@ public class SlotBehaviour : MonoBehaviour
                 _bonusManager.StartFreeSpin();
                 SlotStart_Button.interactable = false;
                 Debug.Log($"Satart slot button interactable is : " + SlotStart_Button.interactable);
+                IsFreeSpin = true;
 
             }
 
@@ -1037,6 +1039,7 @@ public class SlotBehaviour : MonoBehaviour
                 StopAutoSpin(true);
                 ToggleButtonGrp(false);
             }
+            
         }
         if (!IsAutoSpin && !IsFreeSpin) // Reset spinning state and toggle buttons
         {
@@ -1377,6 +1380,7 @@ public class SlotBehaviour : MonoBehaviour
             if (SocketManager.jackpootPayload.winAmount > 0)
             {
                 yield return _bonusManager.BonusGameEndRoutine(false, SocketManager.jackpootPayload.winAmount);
+              //  audioController.PlayWLAudio("megaWin");
                 if (Balance_text) Balance_text.text = SocketManager.playerdata.balance.ToString("f3");
             }
             yield return new WaitForSeconds(0.5f);

@@ -11,13 +11,15 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioSource bg_audioBonus;
     [SerializeField] private AudioSource audioPlayer_Bonus;
     [SerializeField] private SlotBehaviour slotBehaviour;
+    [SerializeField] private AudioClip[] BgClips;
 
 
     private void Start()
     {
-        if (bg_adudio) bg_adudio.Play();
-        audioPlayer_button.clip = clips[clips.Length-1];
-        audioSpin_button.clip = clips[clips.Length-2];
+       // if (bg_adudio) bg_adudio.Play();
+        PlayBGAudio(false);
+        audioPlayer_button.clip = clips[clips.Length - 1];
+        audioSpin_button.clip = clips[clips.Length - 2];
     }
 
     void RecieveReactNativeAudioChanges(bool focus){
@@ -127,6 +129,11 @@ public class AudioController : MonoBehaviour
         audioPlayer_wl.loop = false;
     }
 
+    internal void PlayBGAudio(bool FreespinBG)
+    {
+        if (bg_adudio) bg_adudio.clip = FreespinBG ? BgClips[1] : BgClips[0];
+        bg_adudio.Play();     
+    }
     internal void ToggleMute(bool toggle, string type)
     {
         switch (type)

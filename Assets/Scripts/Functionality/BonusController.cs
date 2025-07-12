@@ -33,6 +33,7 @@ public class BonusController : MonoBehaviour
         uiManager.Reels_BgImage.sprite = uiManager.Reels_BGSprites[1];
         FreeSpinCounts = 0;
         FreeSpinTotalWin = 0;
+        _audioManager.PlayBGAudio(true);
         StartCoroutine(FreeSpinStartRoutine());
     }
 
@@ -42,8 +43,6 @@ public class BonusController : MonoBehaviour
         yield return new WaitUntil(() => IsWildSelected == true);
         BigBullAnimationPanel.SetActive(true);
         yield return new WaitForSeconds(2.8f);
-
-        _audioManager.SwitchBGSound(true);
 
         slotManager.StopGameAnimation();
 
@@ -70,7 +69,7 @@ public class BonusController : MonoBehaviour
                 MainPopup_Panel.SetActive(true);
                 BonusWinPopup_Object.SetActive(true);
                 double currentValue = 0;
-                DOTween.To(() => currentValue, x => currentValue = x, FreeSpinTotalWin, 1.7f)
+                DOTween.To(() => currentValue, x => currentValue = x, FreeSpinTotalWin, 1.3f)
                .OnUpdate(() =>
                {
                    if (BonusWinAmount_Text) BonusWinAmount_Text.text = currentValue.ToString("f3");
@@ -95,6 +94,7 @@ public class BonusController : MonoBehaviour
            yield return new WaitForSeconds(3f);
             MainPopup_Panel.SetActive(false);
             BonusWinPopup_Object.SetActive(false);
+             _audioManager.PlayBGAudio(false);
          yield return null;
     }
 
