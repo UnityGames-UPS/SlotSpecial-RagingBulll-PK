@@ -48167,31 +48167,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentAnimationState: 0
   textureArray:
-  - {fileID: 21300000, guid: 35f9896cbbffb4794bcf08cee27cd248, type: 3}
-  - {fileID: 21300000, guid: c4b2ca0a041734c61a75a7973c19e87e, type: 3}
-  - {fileID: 21300000, guid: 5e024bea6094e4502bc962e4ff92a3af, type: 3}
-  - {fileID: 21300000, guid: 15736502571b344029ece1b679018d12, type: 3}
-  - {fileID: 21300000, guid: e64978a65af774fdd83720832aeac52e, type: 3}
-  - {fileID: 21300000, guid: 3e3ef2fe4d1814206854dc706c992f3a, type: 3}
-  - {fileID: 21300000, guid: 2729f9e08079d49efb45d7cd060da10f, type: 3}
-  - {fileID: 21300000, guid: 8028cfdd6ff6c4ec4b0c10fb4de36da3, type: 3}
-  - {fileID: 21300000, guid: 11c38296a9619407594f893e1776fc4a, type: 3}
-  - {fileID: 21300000, guid: 4d0ac4cc1bed94e1ebfda907d4d7871d, type: 3}
-  - {fileID: 21300000, guid: c6fbf7d00179f4468a489bbd6a7e4474, type: 3}
-  - {fileID: 21300000, guid: 3d837f0652fa24cbd96985093f5d6ae2, type: 3}
-  - {fileID: 21300000, guid: 2c549e9cb32774a13982561be784f2ac, type: 3}
-  - {fileID: 21300000, guid: a5d3345c4017c47dd92f1490b46dc97d, type: 3}
-  - {fileID: 21300000, guid: 95507bc2ca91c49caa5d193d6f15f1c3, type: 3}
-  - {fileID: 21300000, guid: 1104ea86616d845b2a2f728ccf1323b5, type: 3}
-  - {fileID: 21300000, guid: 64d8ed3a7115e44279f78ad37600bcf9, type: 3}
-  - {fileID: 21300000, guid: c5f6d254a4244412fae0dedb80dd222c, type: 3}
-  - {fileID: 21300000, guid: b3162c6918adb49a6a9aaf9ecaaad7e4, type: 3}
-  - {fileID: 21300000, guid: 37cf96d0995a14c19b9ed1400052f75a, type: 3}
+  - {fileID: 21300000, guid: cd952132298474087a0a623675c291b9, type: 3}
+  - {fileID: 21300000, guid: a231b3122dfa6452da80dec39a4c9412, type: 3}
+  - {fileID: 21300000, guid: 97f44943e43e84d738aacb5061e2a592, type: 3}
+  - {fileID: 21300000, guid: e1e39b1ba9d8d4e76adca9d09617aec2, type: 3}
+  - {fileID: 21300000, guid: f807093d071de4574893a2f873e4c8f3, type: 3}
+  - {fileID: 21300000, guid: 5c20b26a632db44f7a322375834f4ce9, type: 3}
+  - {fileID: 21300000, guid: c63e5c617346e4399ae8980d583cceaa, type: 3}
+  - {fileID: 21300000, guid: 73fadfb4cbee045f897a044a6cb14a21, type: 3}
+  - {fileID: 21300000, guid: f03db7980aa7348b9a3aba9bf60d78d2, type: 3}
+  - {fileID: 21300000, guid: ae06dbd0621b04854b0ae63e0eaa1e2a, type: 3}
+  - {fileID: 21300000, guid: 077a4e60bd9454097bca1a54561addd0, type: 3}
+  - {fileID: 21300000, guid: 822ae3dc6389b4372b7ae848e6851ed2, type: 3}
+  - {fileID: 21300000, guid: 247e5b15afa8c486992745ed6e200d82, type: 3}
+  - {fileID: 21300000, guid: ff44844bd5f214dea892f000a2905c11, type: 3}
+  - {fileID: 21300000, guid: 3fd48bcaea5d442fdb048b357ab4ab7f, type: 3}
+  - {fileID: 21300000, guid: 556290cefb0194439a57e0540bad732c, type: 3}
+  - {fileID: 21300000, guid: 60bd8cb70b2324c8e9c07a2135bbe2f6, type: 3}
+  - {fileID: 21300000, guid: c4141173fe68a4983b585a5bc914ae23, type: 3}
+  - {fileID: 21300000, guid: d3580175b73104df9aa3adb0d36c84cf, type: 3}
+  - {fileID: 21300000, guid: f6235a5a293904738aaf6e3476aaaffe, type: 3}
+  - {fileID: 21300000, guid: d8f79d903d7164a76b0b78b2dd8f5664, type: 3}
+  - {fileID: 21300000, guid: 4d8c69fd2e0d04510a09b60aa2a6bffd, type: 3}
+  - {fileID: 21300000, guid: 94998004d999249749719e6f40d8a87c, type: 3}
+  - {fileID: 21300000, guid: a837a988ae7ff4148b89712311c91f1e, type: 3}
+  - {fileID: 21300000, guid: 881f00d0e52134b3a8e0e1b6a8fabae2, type: 3}
+  - {fileID: 21300000, guid: c53f9a3476da2422f84c9b073d533878, type: 3}
+  - {fileID: 21300000, guid: 9354a69cd02f34ed7a0cb86eb0239253, type: 3}
+  - {fileID: 21300000, guid: 2067478c50ed14b5eb2fe040651a6ca9, type: 3}
+  - {fileID: 21300000, guid: 540e44ca5ae004a5c8f4b13b692903eb, type: 3}
+  - {fileID: 21300000, guid: d63f20854a5694ee9b38d7eb78bd458c, type: 3}
   rendererDelegate: {fileID: 1675344762}
   useSharedMaterial: 1
   doLoopAnimation: 1
   StartOnEnable: 0
-  AnimationSpeed: 12
+  AnimationSpeed: 26
   delayBetweenLoop: 0
 --- !u!1 &1680046848
 GameObject:
