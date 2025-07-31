@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
     [Header("Disconnection Popup")]
     [SerializeField] private Button CloseDisconnect_Button;
     [SerializeField] private GameObject DisconnectPopup_Object;
+    [SerializeField] private GameObject ReconnectPopup_Object;
 
     [Header("AnotherDevice Popup")]
     [SerializeField] private GameObject ADPopup_Object;
@@ -60,8 +61,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text Wild_Text;
     [SerializeField] private TMP_Text MiniGameDis_Text;
     [SerializeField] private TMP_Text MinorWin_Text;
-     [SerializeField] private TMP_Text MajorWin_Text;
-      [SerializeField] private TMP_Text GrandWin_Text;
+    [SerializeField] private TMP_Text MajorWin_Text;
+    [SerializeField] private TMP_Text GrandWin_Text;
 
 
     [SerializeField] private TMP_Text GrayWild_MultiplierText;
@@ -69,7 +70,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text OrangeWild_MultiplierText;
     [SerializeField] private TMP_Text BlueWild_MultiplierText;
     [SerializeField] private TMP_Text YellowWild_MultiplierText;
-    [SerializeField] private TMP_Text PurpleWild_MultiplierText;    
+    [SerializeField] private TMP_Text PurpleWild_MultiplierText;
 
 
     [SerializeField] private List<GameObject> GameRulesPages = new();
@@ -99,11 +100,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private SocketIOManager socketManager;
 
     [Header(" BG Theme Images")]
-     public Sprite[] BG_ThemeSprites;
-     public Sprite[] Reels_BGSprites;
+    public Sprite[] BG_ThemeSprites;
+    public Sprite[] Reels_BGSprites;
 
-     public Image Reels_BgImage;
-     public Image Bg_ThemeImage;
+    public Image Reels_BgImage;
+    public Image Bg_ThemeImage;
     private Tween WinPopupTextTween;
     private bool isMusic = true;
     private bool isSound = true;
@@ -113,8 +114,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        if(SkipWinAnimation) SkipWinAnimation.onClick.RemoveAllListeners();
-        if(SkipWinAnimation) SkipWinAnimation.onClick.AddListener(SkipWin);
+        if (SkipWinAnimation) SkipWinAnimation.onClick.RemoveAllListeners();
+        if (SkipWinAnimation) SkipWinAnimation.onClick.AddListener(SkipWin);
 
         if (RaycastLayerButton) RaycastLayerButton.onClick.RemoveAllListeners();
         if (RaycastLayerButton) RaycastLayerButton.onClick.AddListener(() => CanCloseMenu());
@@ -140,7 +141,8 @@ public class UIManager : MonoBehaviour
         });
 
         if (Music_Button) Music_Button.onClick.RemoveAllListeners();
-        if (Music_Button) Music_Button.onClick.AddListener(delegate {
+        if (Music_Button) Music_Button.onClick.AddListener(delegate
+        {
 
             if (isMusic)
             {
@@ -187,10 +189,10 @@ public class UIManager : MonoBehaviour
         if (SettingsQuit_Button) SettingsQuit_Button.onClick.AddListener(delegate { ClosePopup(Settings_Object); });
 
         if (PaytableLeft_Button) PaytableLeft_Button.onClick.RemoveAllListeners();
-        if (PaytableLeft_Button) PaytableLeft_Button.onClick.AddListener(()=> ChangePage(false));
+        if (PaytableLeft_Button) PaytableLeft_Button.onClick.AddListener(() => ChangePage(false));
 
         if (PaytableRight_Button) PaytableRight_Button.onClick.RemoveAllListeners();
-        if (PaytableRight_Button) PaytableRight_Button.onClick.AddListener(()=> ChangePage(true));
+        if (PaytableRight_Button) PaytableRight_Button.onClick.AddListener(() => ChangePage(true));
     }
 
     internal void CanCloseMenu()
@@ -236,15 +238,15 @@ public class UIManager : MonoBehaviour
         //     }
         // }
         if (IncDec)
-         {
+        {
             PageIndex = (PageIndex + 1) % GameRulesPages.Count;
-         }
-         else
-          {
+        }
+        else
+        {
             PageIndex = (PageIndex - 1 + GameRulesPages.Count) % GameRulesPages.Count;
-          }
-          
-        foreach(GameObject g in GameRulesPages)
+        }
+
+        foreach (GameObject g in GameRulesPages)
         {
             g.SetActive(false);
         }
@@ -256,7 +258,7 @@ public class UIManager : MonoBehaviour
 
     private void OpenCloseMenu(bool toggle)
     {
-        if(audioController) audioController.PlayButtonAudio();
+        if (audioController) audioController.PlayButtonAudio();
         if (toggle)
         {
             isMenu = true;
@@ -362,14 +364,14 @@ public class UIManager : MonoBehaviour
 
         PageIndex = 0;
 
-        foreach(GameObject g in GameRulesPages)
+        foreach (GameObject g in GameRulesPages)
         {
             g.SetActive(false);
         }
 
         GameRulesPages[0].SetActive(true);
-        if(PaytableLeft_Button) PaytableLeft_Button.interactable = true;
-        if(PaytableRight_Button) PaytableRight_Button.interactable = true;
+        if (PaytableLeft_Button) PaytableLeft_Button.interactable = true;
+        if (PaytableRight_Button) PaytableRight_Button.interactable = true;
 
         if (PaytableMenuObject) PaytableMenuObject.SetActive(true);
 
@@ -382,7 +384,7 @@ public class UIManager : MonoBehaviour
         OpenPopup(LBPopup_Object);
     }
 
-    internal void DisconnectionPopup(bool isReconnection)
+    internal void DisconnectionPopup()
     {
         if (!isExit)
         {
@@ -391,9 +393,26 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    internal void PopulateWin(int value , double winAmount)
+    internal void ReconnectionPopup()
     {
-        Debug.Log($" Populated Win :" + value  );
+        OpenPopup(ReconnectPopup_Object);
+    }
+
+    internal void CheckAndClosePopups()
+    {
+        if (ReconnectPopup_Object.activeInHierarchy)
+        {
+            ClosePopup(ReconnectPopup_Object);
+        }
+        if (DisconnectPopup_Object.activeInHierarchy)
+        {
+            ClosePopup(DisconnectPopup_Object);
+        }
+    }
+
+    internal void PopulateWin(int value, double winAmount)
+    {
+        Debug.Log($" Populated Win :" + value);
         switch (value)
         {
             case 1:
@@ -415,7 +434,7 @@ public class UIManager : MonoBehaviour
             case 6:
                 if (Win_Image) Win_Image.sprite = Major_Sprite;
                 break;
-                case 7:
+            case 7:
                 if (Win_Image) Win_Image.sprite = Grand_Sprite;
                 break;
         }
@@ -543,22 +562,22 @@ public class UIManager : MonoBehaviour
         SetJackPotData();
     }
 
-     public void SetWildMultiplierData()
+    public void SetWildMultiplierData()
     {
         //Set Free Spins Data
-        if (GrayWild_MultiplierText) GrayWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[0].count.ToString() +" Free Spins "+"\n"+ string.Join("x, ", socketManager.initialData.features.freespinOptions[0].multiplier) +"x Multiplier";
+        if (GrayWild_MultiplierText) GrayWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[0].count.ToString() + " Free Spins " + "\n" + string.Join("x, ", socketManager.initialData.features.freespinOptions[0].multiplier) + "x Multiplier";
         if (RedWild_MultiplierText) RedWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[1].count.ToString() + " Free Spins " + "\n" + string.Join("x, ", socketManager.initialData.features.freespinOptions[1].multiplier) + "x Multiplier";
-        if (OrangeWild_MultiplierText) OrangeWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[2].count.ToString()+ " Free Spins " + "\n"+ string.Join("x, ", socketManager.initialData.features.freespinOptions[2].multiplier)+ "x Multiplier";
-        if (PurpleWild_MultiplierText) PurpleWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[3].count.ToString()+ " Free Spins " + "\n"+ string.Join("x, ", socketManager.initialData.features.freespinOptions[3].multiplier)+ "x Multiplier";
-        if (BlueWild_MultiplierText) BlueWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[4].count.ToString()+ " Free Spins " + "\n"+ string.Join("x, ", socketManager.initialData.features.freespinOptions[4].multiplier)+ "x Multiplier";
-        if (YellowWild_MultiplierText) YellowWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[5].count.ToString()+ " Free Spins " + "\n"+ string.Join("x, ", socketManager.initialData.features.freespinOptions[5].multiplier)+ "x Multiplier";
+        if (OrangeWild_MultiplierText) OrangeWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[2].count.ToString() + " Free Spins " + "\n" + string.Join("x, ", socketManager.initialData.features.freespinOptions[2].multiplier) + "x Multiplier";
+        if (PurpleWild_MultiplierText) PurpleWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[3].count.ToString() + " Free Spins " + "\n" + string.Join("x, ", socketManager.initialData.features.freespinOptions[3].multiplier) + "x Multiplier";
+        if (BlueWild_MultiplierText) BlueWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[4].count.ToString() + " Free Spins " + "\n" + string.Join("x, ", socketManager.initialData.features.freespinOptions[4].multiplier) + "x Multiplier";
+        if (YellowWild_MultiplierText) YellowWild_MultiplierText.text = socketManager.initialData.features.freespinOptions[5].count.ToString() + " Free Spins " + "\n" + string.Join("x, ", socketManager.initialData.features.freespinOptions[5].multiplier) + "x Multiplier";
     }
 
     public void SetJackPotData()
     {
-       MinorWin_Text.text= socketManager.initialData.features.jackpotMultipliers[0].ToString()+" x Total Bet";
-        MajorWin_Text.text = socketManager.initialData.features.jackpotMultipliers[1].ToString() +" x Total Bet";
-        GrandWin_Text.text=socketManager.initialData.features.jackpotMultipliers[2].ToString()+ " x Total Bet ";
+        MinorWin_Text.text = socketManager.initialData.features.jackpotMultipliers[0].ToString() + " x Total Bet";
+        MajorWin_Text.text = socketManager.initialData.features.jackpotMultipliers[1].ToString() + " x Total Bet";
+        GrandWin_Text.text = socketManager.initialData.features.jackpotMultipliers[2].ToString() + " x Total Bet ";
     }
 
     private void CallOnExitFunction()
@@ -580,7 +599,7 @@ public class UIManager : MonoBehaviour
     {
         if (audioController) audioController.PlayButtonAudio();
         if (Popup) Popup.SetActive(false);
-        if (!DisconnectPopup_Object.activeSelf) 
+        if (!DisconnectPopup_Object.activeSelf)
         {
             if (MainPopup_Object) MainPopup_Object.SetActive(false);
         }

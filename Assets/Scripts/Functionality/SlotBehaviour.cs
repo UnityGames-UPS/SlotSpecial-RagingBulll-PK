@@ -332,157 +332,181 @@ public class SlotBehaviour : MonoBehaviour
         if (Row1Column1_Button) Row1Column1_Button.onClick.RemoveAllListeners();
         if (Row1Column1_Button) Row1Column1_Button.onClick.AddListener(delegate
         {
-            SocketManager.SendSelectedFlipCoin(new List<int> { 0, 0 });
-            Row1Column1_Button.interactable = false;
-            SetMiniGameButtonsInteractable(false);
-            Row1Column1_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
+            if (!(MiniGame_LeftSpinsCount <= 0))
+            {
+                SocketManager.SendSelectedFlipCoin(new List<int> { 0, 0 });
+                Row1Column1_Button.interactable = false;
+                SetMiniGameButtonsInteractable(false);
+                Row1Column1_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
 
-            SocketManager.isResultdone = false;
-            StartCoroutine(MiniGAmeAnim());
+                SocketManager.isResultdone = false;
+                StartCoroutine(MiniGAmeAnim());
+            }
 
         });
 
         if (Row1Column2_Button) Row1Column2_Button.onClick.RemoveAllListeners();
         if (Row1Column2_Button) Row1Column2_Button.onClick.AddListener(delegate
         {
-            SocketManager.SendSelectedFlipCoin(new List<int> { 0, 1 });
-            Row1Column2_Button.interactable = false;
+            if (!(MiniGame_LeftSpinsCount <= 0))
+            {
+                SocketManager.SendSelectedFlipCoin(new List<int> { 0, 1 });
+                Row1Column2_Button.interactable = false;
 
-            SetMiniGameButtonsInteractable(false);
-            Row1Column2_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
+                SetMiniGameButtonsInteractable(false);
+                Row1Column2_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
 
-            SocketManager.isResultdone = false;
-            StartCoroutine(MiniGAmeAnim());
+                SocketManager.isResultdone = false;
+                StartCoroutine(MiniGAmeAnim());
+            }
         });
 
         if (Row1Column3_Button) Row1Column3_Button.onClick.RemoveAllListeners();
         if (Row1Column3_Button) Row1Column3_Button.onClick.AddListener(delegate
         {
-            SocketManager.SendSelectedFlipCoin(new List<int> { 0, 2 });
-            Row1Column3_Button.interactable = false;
-            SetMiniGameButtonsInteractable(false);
-            Row1Column3_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
+            if (!(MiniGame_LeftSpinsCount <= 0))
+            {
+                SocketManager.SendSelectedFlipCoin(new List<int> { 0, 2 });
+                Row1Column3_Button.interactable = false;
+                SetMiniGameButtonsInteractable(false);
+                Row1Column3_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
 
 
-            SocketManager.isResultdone = false;
-            StartCoroutine(MiniGAmeAnim());
+                SocketManager.isResultdone = false;
+                StartCoroutine(MiniGAmeAnim());
+            }
         });
 
         if (Row1Column4_Button) Row1Column4_Button.onClick.RemoveAllListeners();
         if (Row1Column4_Button) Row1Column4_Button.onClick.AddListener(delegate
         {
-            SocketManager.SendSelectedFlipCoin(new List<int> { 0, 3 });
-            Row1Column4_Button.interactable = false;
-            SetMiniGameButtonsInteractable(false);
-            Row1Column4_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
+            if (!(MiniGame_LeftSpinsCount <= 0))
+            {
+                SocketManager.SendSelectedFlipCoin(new List<int> { 0, 3 });
+                Row1Column4_Button.interactable = false;
+                SetMiniGameButtonsInteractable(false);
+                Row1Column4_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
 
 
-            SocketManager.isResultdone = false;
-            StartCoroutine(MiniGAmeAnim());
+                SocketManager.isResultdone = false;
+                StartCoroutine(MiniGAmeAnim());
+            }
         });
 
         if (Row2Column1_Button) Row2Column1_Button.onClick.RemoveAllListeners();
         if (Row2Column1_Button) Row2Column1_Button.onClick.AddListener(delegate
         {
-            SocketManager.SendSelectedFlipCoin(new List<int> { 1, 0 });
-            Row2Column1_Button.interactable = false;
-            SetMiniGameButtonsInteractable(false);
-            Row2Column1_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
+            if (!(MiniGame_LeftSpinsCount <= 0))
+            {
+                SocketManager.SendSelectedFlipCoin(new List<int> { 1, 0 });
+                Row2Column1_Button.interactable = false;
+                SetMiniGameButtonsInteractable(false);
+                Row2Column1_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
 
 
-            SocketManager.isResultdone = false;
-            StartCoroutine(MiniGAmeAnim());
+                SocketManager.isResultdone = false;
+                StartCoroutine(MiniGAmeAnim());
+            }
         });
 
         if (Row2Column2_Button) Row2Column2_Button.onClick.RemoveAllListeners();
         if (Row2Column2_Button) Row2Column2_Button.onClick.AddListener(delegate
         {
-            SocketManager.SendSelectedFlipCoin(new List<int> { 1, 1 });
-            Row2Column2_Button.interactable = false;
-            SetMiniGameButtonsInteractable(false);
-            Row2Column2_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
-
-
-            SocketManager.isResultdone = false;
-            StartCoroutine(MiniGAmeAnim());
+            if (!(MiniGame_LeftSpinsCount <= 0))
+            {
+                SocketManager.SendSelectedFlipCoin(new List<int> { 1, 1 });
+                Row2Column2_Button.interactable = false;
+                SetMiniGameButtonsInteractable(false);
+                Row2Column2_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
+                SocketManager.isResultdone = false;
+                StartCoroutine(MiniGAmeAnim());
+            }
         });
         if (Row2Column3_Button) Row2Column3_Button.onClick.RemoveAllListeners();
         if (Row2Column3_Button) Row2Column3_Button.onClick.AddListener(delegate
         {
-            SocketManager.SendSelectedFlipCoin(new List<int> { 1, 2 });
-            Row2Column3_Button.interactable = false;
-            SetMiniGameButtonsInteractable(false);
-            Row2Column3_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
+            if (!(MiniGame_LeftSpinsCount <= 0))
+            {
+                SocketManager.SendSelectedFlipCoin(new List<int> { 1, 2 });
+                Row2Column3_Button.interactable = false;
+                SetMiniGameButtonsInteractable(false);
+                Row2Column3_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
 
 
-            SocketManager.isResultdone = false;
-            StartCoroutine(MiniGAmeAnim());
+                SocketManager.isResultdone = false;
+                StartCoroutine(MiniGAmeAnim());
+            }
         });
 
         if (Row2Column4_Button) Row2Column4_Button.onClick.RemoveAllListeners();
         if (Row2Column4_Button) Row2Column4_Button.onClick.AddListener(delegate
         {
-            SocketManager.SendSelectedFlipCoin(new List<int> { 1, 3 });
-            Row2Column4_Button.interactable = false;
-            SetMiniGameButtonsInteractable(false);
-            Row2Column4_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
-
-
-            SocketManager.isResultdone = false;
-            StartCoroutine(MiniGAmeAnim());
+            if (!(MiniGame_LeftSpinsCount <= 0))
+            {
+                SocketManager.SendSelectedFlipCoin(new List<int> { 1, 3 });
+                Row2Column4_Button.interactable = false;
+                SetMiniGameButtonsInteractable(false);
+                Row2Column4_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
+                SocketManager.isResultdone = false;
+                StartCoroutine(MiniGAmeAnim());
+            }
         });
 
         if (Row3Column1_Button) Row3Column1_Button.onClick.RemoveAllListeners();
         if (Row3Column1_Button) Row3Column1_Button.onClick.AddListener(delegate
         {
-            SocketManager.SendSelectedFlipCoin(new List<int> { 2, 0 });
-            Row3Column1_Button.interactable = false;
-            SetMiniGameButtonsInteractable(false);
-            Row3Column1_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
-
-
-
-            SocketManager.isResultdone = false;
-            StartCoroutine(MiniGAmeAnim());
+            if (!(MiniGame_LeftSpinsCount <= 0))
+            {
+                SocketManager.SendSelectedFlipCoin(new List<int> { 2, 0 });
+                Row3Column1_Button.interactable = false;
+                SetMiniGameButtonsInteractable(false);
+                Row3Column1_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
+                SocketManager.isResultdone = false;
+                StartCoroutine(MiniGAmeAnim());
+            }
         });
 
         if (Row3Column2_Button) Row3Column2_Button.onClick.RemoveAllListeners();
         if (Row3Column2_Button) Row3Column2_Button.onClick.AddListener(delegate
         {
-            SocketManager.SendSelectedFlipCoin(new List<int> { 2, 1 });
-            Row3Column2_Button.interactable = false;
-            SetMiniGameButtonsInteractable(false);
-            Row3Column2_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
-
-
-            SocketManager.isResultdone = false;
-            StartCoroutine(MiniGAmeAnim());
+            if (!(MiniGame_LeftSpinsCount <= 0))
+            {
+                SocketManager.SendSelectedFlipCoin(new List<int> { 2, 1 });
+                Row3Column2_Button.interactable = false;
+                SetMiniGameButtonsInteractable(false);
+                Row3Column2_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
+                SocketManager.isResultdone = false;
+                StartCoroutine(MiniGAmeAnim());
+            }
         });
 
         if (Row3Column3_Button) Row3Column3_Button.onClick.RemoveAllListeners();
         if (Row3Column3_Button) Row3Column3_Button.onClick.AddListener(delegate
         {
-            SocketManager.SendSelectedFlipCoin(new List<int> { 2, 2 });
-            Row3Column3_Button.interactable = false;
+            if (!(MiniGame_LeftSpinsCount <= 0))
+            {
+                SocketManager.SendSelectedFlipCoin(new List<int> { 2, 2 });
+                Row3Column3_Button.interactable = false;
 
-            SetMiniGameButtonsInteractable(false);
-            Row3Column3_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
-
-            SocketManager.isResultdone = false;
-            StartCoroutine(MiniGAmeAnim());
+                SetMiniGameButtonsInteractable(false);
+                Row3Column3_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
+                SocketManager.isResultdone = false;
+                StartCoroutine(MiniGAmeAnim());
+            }
         });
 
         if (Row3Column4_Button) Row3Column4_Button.onClick.RemoveAllListeners();
         if (Row3Column4_Button) Row3Column4_Button.onClick.AddListener(delegate
         {
-            SocketManager.SendSelectedFlipCoin(new List<int> { 2, 3 });
-            Row3Column4_Button.interactable = false;
-            SetMiniGameButtonsInteractable(false);
-            Row3Column4_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
-
-
-            SocketManager.isResultdone = false;
-            StartCoroutine(MiniGAmeAnim());
+            if (!(MiniGame_LeftSpinsCount <= 0))
+            {
+                SocketManager.SendSelectedFlipCoin(new List<int> { 2, 3 });
+                Row3Column4_Button.interactable = false;
+                SetMiniGameButtonsInteractable(false);
+                Row3Column4_Button.gameObject.GetComponent<BonusGameCoin>().IsCoinClicked = true;
+                SocketManager.isResultdone = false;
+                StartCoroutine(MiniGAmeAnim());
+            }
         });
 
     }
@@ -566,17 +590,17 @@ public class SlotBehaviour : MonoBehaviour
 
         // if (!IsFreeSpin)
         // {
-            if (FSnum_text) FSnum_text.text = spins.ToString();
-            IsFreeSpin = true;
-            ToggleButtonGrp(false);
+        if (FSnum_text) FSnum_text.text = spins.ToString();
+        IsFreeSpin = true;
+        ToggleButtonGrp(false);
 
-            if (FreeSpinRoutine != null)
-            {
-                StopCoroutine(FreeSpinRoutine);
-                FreeSpinRoutine = null;
-            }
-            FreeSpinRoutine = StartCoroutine(FreeSpinCoroutine(spins));
-       // }
+        if (FreeSpinRoutine != null)
+        {
+            StopCoroutine(FreeSpinRoutine);
+            FreeSpinRoutine = null;
+        }
+        FreeSpinRoutine = StartCoroutine(FreeSpinCoroutine(spins));
+        // }
     }
 
     private IEnumerator FreeSpinCoroutine(int spinchances)
@@ -600,7 +624,7 @@ public class SlotBehaviour : MonoBehaviour
         }
         IsFreeSpin = false;
         yield return _bonusManager.BonusGameEndRoutine(true, 0);
-      // if(_bonusManager.FreeSpinTotalWin>0) audioController.PlayWLAudio("megaWin");
+        // if(_bonusManager.FreeSpinTotalWin>0) audioController.PlayWLAudio("megaWin");
         if (Balance_text) Balance_text.text = SocketManager.playerdata.balance.ToString("f3");
         FreeSpinPanel.SetActive(false);
         myImages[11] = WildTypesImages[1];
@@ -810,13 +834,13 @@ public class SlotBehaviour : MonoBehaviour
                 animScript.AnimationSpeed = 8f;
                 break;
 
-            // case 12:
-            //     for (int i = 0; i < Scatter_Sprite.Length; i++)
-            //     {
-            //         animScript.textureArray.Add(Scatter_Sprite[i]);
-            //     }
-            //     animScript.AnimationSpeed = 10f;
-            //     break;
+                // case 12:
+                //     for (int i = 0; i < Scatter_Sprite.Length; i++)
+                //     {
+                //         animScript.textureArray.Add(Scatter_Sprite[i]);
+                //     }
+                //     animScript.AnimationSpeed = 10f;
+                //     break;
 
         }
     }
@@ -984,10 +1008,10 @@ public class SlotBehaviour : MonoBehaviour
         yield return new WaitUntil(() => !CheckPopups);
         //  SymbolsToEmitAnimPanel.SetActive(false);
         if (SocketManager.resultData.features.bonus.isTriggered)
-        {           
+        {
             yield return new WaitForSeconds(1f);
             SkipSymbolsEmitedAniamiton();
-           // StopCoroutine(BoxRoutine());
+            // StopCoroutine(BoxRoutine());
             SetMiniGameButtonsInteractable(true);
             MiniBonus_Game_Panel.SetActive(true);
             MiniGame_LeftSpinsCount = 5;
@@ -1039,7 +1063,7 @@ public class SlotBehaviour : MonoBehaviour
                 StopAutoSpin(true);
                 ToggleButtonGrp(false);
             }
-            
+
         }
         if (!IsAutoSpin && !IsFreeSpin) // Reset spinning state and toggle buttons
         {
@@ -1380,7 +1404,7 @@ public class SlotBehaviour : MonoBehaviour
             if (SocketManager.jackpootPayload.winAmount > 0)
             {
                 yield return _bonusManager.BonusGameEndRoutine(false, SocketManager.jackpootPayload.winAmount);
-              //  audioController.PlayWLAudio("megaWin");
+                //  audioController.PlayWLAudio("megaWin");
                 if (Balance_text) Balance_text.text = SocketManager.playerdata.balance.ToString("f3");
             }
             yield return new WaitForSeconds(0.5f);
@@ -1393,7 +1417,7 @@ public class SlotBehaviour : MonoBehaviour
 
     internal void CallCloseSocket()
     {
-        SocketManager.CloseSocket();
+        StartCoroutine(SocketManager.CloseSocket());
     }
 
     void ToggleButtonGrp(bool toggle)
@@ -1509,7 +1533,7 @@ public class SlotBehaviour : MonoBehaviour
         if (BOXCORoutine != null) StopCoroutine(BOXCORoutine);
         SymbolsToEmitAnimPanel.SetActive(false);
         CheckPopups = false;
-        Debug.Log($"@@@@@@@ checkpoup is  skipemited symbol  "+ CheckPopups);
+        Debug.Log($"@@@@@@@ checkpoup is  skipemited symbol  " + CheckPopups);
     }
     #region TweeningCode
     private void InitializeTweening(Transform slotTransform)
@@ -1643,13 +1667,13 @@ public class SlotBehaviour : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            for (int j =0; j < 3; j++)
+            for (int j = 0; j < 3; j++)
             {
                 Tempimages[i].slotImages[j].gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(250f, 250f);
             }
         }
     }
-    
+
 
 }
 
