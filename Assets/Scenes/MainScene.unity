@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14161,7 +14160,7 @@ MonoBehaviour:
   slotManager: {fileID: 2046803210}
   uiManager: {fileID: 377874625}
   JSManager: {fileID: 1604285695}
-  testToken: 9cbd877eed53452fad61362238f13b02
+  testToken: 626cf7f5f21649b6b96f103208f1c993
   RaycastBlocker: {fileID: 1500387597}
 --- !u!1 &500673622
 GameObject:
@@ -59440,7 +59439,7 @@ MonoBehaviour:
   SymbolsToEmitSkipWinAnimation_Button: {fileID: 403420876}
   Turbo_Button: {fileID: 1675344761}
   StopSpin_Button: {fileID: 1500418483}
-  TurboToggleSprite: {fileID: 21300000, guid: adb5e611e2aad486a877414ec6959d56, type: 3}
+  TurboToggleSprite: {fileID: -1330842839, guid: 9e846d3df4990ad46b880e0acf24fb96, type: 3}
   Balance_text: {fileID: 1771885944}
   TotalBet_text: {fileID: 1875856110}
   LineBet_text: {fileID: 1062305055}

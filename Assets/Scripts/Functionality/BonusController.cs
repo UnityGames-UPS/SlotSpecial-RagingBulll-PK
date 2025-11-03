@@ -39,6 +39,9 @@ public class BonusController : MonoBehaviour
 
     private IEnumerator FreeSpinStartRoutine()
     {
+        slotManager.MystryChoice_Text.text = "Mystry Choice";
+        slotManager.MysrtryMultiplier_Text.text = "Mystry Multiplier";
+        slotManager.MysrtryNumber_Text.text = "";
 
         yield return new WaitUntil(() => IsWildSelected == true);
         BigBullAnimationPanel.SetActive(true);
@@ -65,16 +68,16 @@ public class BonusController : MonoBehaviour
         //  Debug.Log("@@@@ Game end routie called" + FreeSpinTotalWin);
         if (IsfreeSpin && FreeSpinTotalWin > 0)
         {
-                Debug.Log("@@@@ Game end routie called" + FreeSpinTotalWin);
-                MainPopup_Panel.SetActive(true);
-                BonusWinPopup_Object.SetActive(true);
-                double currentValue = 0;
-                DOTween.To(() => currentValue, x => currentValue = x, FreeSpinTotalWin, 1.3f)
-               .OnUpdate(() =>
-               {
-                   if (BonusWinAmount_Text) BonusWinAmount_Text.text = currentValue.ToString("f3");
-               });
-                if (BonusWinFreeSpinCoun_Text) BonusWinFreeSpinCoun_Text.text = "In " + FreeSpinCounts.ToString() + " Spins ";
+            // Debug.Log("@@@@ Game end routie called" + FreeSpinTotalWin);
+            MainPopup_Panel.SetActive(true);
+            BonusWinPopup_Object.SetActive(true);
+            double currentValue = 0;
+            DOTween.To(() => currentValue, x => currentValue = x, FreeSpinTotalWin, 1.3f)
+           .OnUpdate(() =>
+           {
+               if (BonusWinAmount_Text) BonusWinAmount_Text.text = currentValue.ToString("f3");
+           });
+            if (BonusWinFreeSpinCoun_Text) BonusWinFreeSpinCoun_Text.text = "In " + FreeSpinCounts.ToString() + " Spins ";
             uiManager.Bg_ThemeImage.sprite = uiManager.BG_ThemeSprites[0];
             uiManager.Reels_BgImage.sprite = uiManager.Reels_BGSprites[0];
         }
@@ -91,11 +94,11 @@ public class BonusController : MonoBehaviour
             if (BonusWinFreeSpinCoun_Text) BonusWinFreeSpinCoun_Text.text = "";
         }
 
-           yield return new WaitForSeconds(3f);
-            MainPopup_Panel.SetActive(false);
-            BonusWinPopup_Object.SetActive(false);
-             _audioManager.PlayBGAudio(false);
-         yield return null;
+        yield return new WaitForSeconds(3f);
+        MainPopup_Panel.SetActive(false);
+        BonusWinPopup_Object.SetActive(false);
+        _audioManager.PlayBGAudio(false);
+        yield return null;
     }
 
     private IEnumerator TextAnimation(TMP_Text textObject, RectTransform imageObject, int IntGoal, double DoubleGoal, bool spin = false)

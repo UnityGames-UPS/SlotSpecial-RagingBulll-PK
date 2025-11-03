@@ -102,9 +102,9 @@ public class SlotBehaviour : MonoBehaviour
     [SerializeField] private Button SkyBlueWild_Button;
     [SerializeField] private Button YellowWild_Button;
     [SerializeField] private Button GreenWild_Button;
-    [SerializeField] private TMP_Text MystryChoice_Text;
-    [SerializeField] private TMP_Text MysrtryNumber_Text;
-    [SerializeField] private TMP_Text MysrtryMultiplier_Text;
+    [SerializeField] internal TMP_Text MystryChoice_Text;
+    [SerializeField] internal TMP_Text MysrtryNumber_Text;
+    [SerializeField] internal TMP_Text MysrtryMultiplier_Text;
     [SerializeField] private GameObject MysrtryNumberAnimation;
     [SerializeField] private GameObject MysrtryMultiplierAnimation;
 
@@ -874,6 +874,7 @@ public class SlotBehaviour : MonoBehaviour
     //manage the Routine for spinning of the slots
     private IEnumerator TweenRoutine(bool bonus = false)
     {
+        if (Turbo_Button) Turbo_Button.interactable = true;
         if (currentBalance < currentTotalBet && !IsFreeSpin) // Check if balance is sufficient to place the bet
         {
             // CompareBalance();
@@ -1427,7 +1428,7 @@ public class SlotBehaviour : MonoBehaviour
         if (AutoSpin_Button && !IsAutoSpin) AutoSpin_Button.interactable = toggle;
         if (TotalBetPlus_Button) TotalBetPlus_Button.interactable = toggle;
         if (TotalBetMinus_Button) TotalBetMinus_Button.interactable = toggle;
-        if (Turbo_Button) Turbo_Button.interactable = toggle;
+        //  if (Turbo_Button) Turbo_Button.interactable = toggle;
         Debug.Log("@@@@@@@  toggle btn true" + toggle);
 
     }
