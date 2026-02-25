@@ -22,7 +22,7 @@ public class SocketIOManager : MonoBehaviour
   private Socket gameSocket; //BackendChanges
   private SocketManager manager;
   protected string SocketURI = null;
-  protected string TestSocketURI = "http://localhost:5000/";
+  protected string TestSocketURI = "https://devrealtime.dingdinghouse.com/";
   //protected string TestSocketURI = "http://localhost:5002/";
   [SerializeField] internal JSFunctCalls JSManager;
   [SerializeField] private string testToken;
@@ -754,7 +754,7 @@ public class Symbol
 
   public int id { get; set; }
   public string name { get; set; }
-  public List<int> multiplier { get; set; }
+  public List<double> multiplier { get; set; }
   public string description { get; set; }
 }
 // [Serializable]
