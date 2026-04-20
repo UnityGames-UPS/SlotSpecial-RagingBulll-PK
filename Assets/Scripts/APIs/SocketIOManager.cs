@@ -43,7 +43,7 @@ public class SocketIOManager : MonoBehaviour
   private float pongTimeout = 3f;
   private bool waitingForPong = false;
   private int missedPongs = 0;
-  private const int MaxMissedPongs = 5;
+  private const int MaxMissedPongs = 10;
   private Coroutine PingRoutine; //Back2 end
 
   [SerializeField] private GameObject RaycastBlocker;
@@ -555,6 +555,7 @@ public class SocketIOManager : MonoBehaviour
     string json = JsonUtility.ToJson(message);
     Debug.Log("@@@@ Free Mini Sent DATA :" + json);
     SendDataWithNamespace("request", json);
+    slotManager.PlayCoinFlipSound();
   }
 
   private List<string> RemoveQuotes(List<string> stringList)

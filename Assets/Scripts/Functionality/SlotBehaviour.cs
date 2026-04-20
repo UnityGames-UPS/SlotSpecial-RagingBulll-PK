@@ -38,7 +38,7 @@ public class SlotBehaviour : MonoBehaviour
 
     [Header("Buttons")]
     [SerializeField] private Button SlotStart_Button;
-    [SerializeField] private Button AutoSpin_Button;
+    [SerializeField] internal Button AutoSpin_Button;
     [SerializeField] private Button AutoSpinStop_Button;
     [SerializeField] private Button TotalBetPlus_Button;
     [SerializeField] private Button TotalBetMinus_Button;
@@ -277,6 +277,7 @@ public class SlotBehaviour : MonoBehaviour
             uiManager.CanCloseMenu();
             StopAutoSpin(false);
             WasAutoSpinOn = false;
+            IsAutoSpin = false;
         });
 
         if (SkipWinAnimation_Button) SkipWinAnimation_Button.onClick.RemoveAllListeners();
@@ -567,6 +568,7 @@ public class SlotBehaviour : MonoBehaviour
     {
         if (AutoSpinStop_Button) AutoSpinStop_Button.interactable = false;
         yield return new WaitUntil(() => !IsSpinning);
+        Debug.Log("^^^.    8" + IsfreeSpin);
         if (!IsfreeSpin) ToggleButtonGrp(true);
         if (AutoSpinRoutine != null || tweenroutine != null)
         {
@@ -578,7 +580,9 @@ public class SlotBehaviour : MonoBehaviour
             tweenroutine = null;
             AutoSpinRoutine = null;
             IsAutoSpin = false;
+            Debug.Log("^^^.    9" + IsfreeSpin);
             if (IsfreeSpin) ToggleButtonGrp(false);
+            if (SocketManager.resultData.features.freeSpin.isTriggered) ToggleButtonGrp(false);
             StopCoroutine(StopAutoSpinCoroutine(IsfreeSpin));
         }
     }
@@ -592,6 +596,7 @@ public class SlotBehaviour : MonoBehaviour
         // {
         if (FSnum_text) FSnum_text.text = spins.ToString();
         IsFreeSpin = true;
+        Debug.Log("^^^.    1");
         ToggleButtonGrp(false);
 
         if (FreeSpinRoutine != null)
@@ -636,8 +641,10 @@ public class SlotBehaviour : MonoBehaviour
         }
         else
         {
+            Debug.Log("^^^.    2");
             ToggleButtonGrp(true);
         }
+
     }
     #endregion
 
@@ -875,13 +882,15 @@ public class SlotBehaviour : MonoBehaviour
     private IEnumerator TweenRoutine(bool bonus = false)
     {
         if (Turbo_Button) Turbo_Button.interactable = true;
+        Debug.Log(currentBalance + ".    " + currentTotalBet);
         if (currentBalance < currentTotalBet && !IsFreeSpin) // Check if balance is sufficient to place the bet
         {
-            // CompareBalance();
+            CompareBalance();
             StopAutoSpin(false);
             yield return new WaitForSeconds(1);
             yield break;
         }
+        Debug.Log("^^^.    3");
         ToggleButtonGrp(false);
 
         if (TotalWin_text) TotalWin_text.text = "0.000";
@@ -1025,9 +1034,18 @@ public class SlotBehaviour : MonoBehaviour
         if (bonus) _bonusManager.FreeSpinTotalWin += SocketManager.resultData.payload.winAmount;
         Debug.Log($"Current Free Spin Winning :" + _bonusManager.FreeSpinTotalWin);
 
-        if (SocketManager.playerdata.currentWining <= 0 && !SocketManager.resultData.features.freeSpin.isTriggered)
+        // if (SocketManager.playerdata.currentWining <= 0 && !SocketManager.resultData.features.freeSpin.isTriggered)
+        // {
+        //     audioController.PlayWLAudio("lose");
+        // }
+        if (SocketManager.resultData.payload.winAmount <= 0)
         {
             audioController.PlayWLAudio("lose");
+        }
+        else if (SocketManager.resultData.payload.winAmount > 0)
+        {
+            audioController.PlayWLAudio("baseWin");
+
         }
 
         yield return new WaitUntil(() => !CheckPopups);
@@ -1044,6 +1062,7 @@ public class SlotBehaviour : MonoBehaviour
         {
             Debug.Log(IsFreeSpin ? "Bonus In Bonus" : "First Time Bonus");
 
+            Debug.Log("^^^.    4");
             ToggleButtonGrp(false);
             yield return new WaitForSeconds(1f);
 
@@ -1063,11 +1082,14 @@ public class SlotBehaviour : MonoBehaviour
                 IsSpinning = false;
                 StopAutoSpin(true);
                 ToggleButtonGrp(false);
+                Debug.Log("^^^.    5");
             }
 
         }
+        Debug.Log("Autospin" + !IsAutoSpin + "freespin" + !IsFreeSpin);
         if (!IsAutoSpin && !IsFreeSpin) // Reset spinning state and toggle buttons
         {
+            Debug.Log("^^^.    6");
             ToggleButtonGrp(true);
             IsSpinning = false;
         }
@@ -1421,7 +1443,7 @@ public class SlotBehaviour : MonoBehaviour
         StartCoroutine(SocketManager.CloseSocket());
     }
 
-    void ToggleButtonGrp(bool toggle)
+    internal void ToggleButtonGrp(bool toggle)
     {
         Debug.Log($" toggle btn grp called :" + toggle);
         if (SlotStart_Button) SlotStart_Button.interactable = toggle;
@@ -1674,7 +1696,10 @@ public class SlotBehaviour : MonoBehaviour
             }
         }
     }
-
+    internal void PlayCoinFlipSound()
+    {
+        audioController.PlayWLAudio("coin");
+    }
 
 }
 

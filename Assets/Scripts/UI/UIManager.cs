@@ -8,6 +8,8 @@ using UnityEngine.Networking;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private JSFunctCalls jsFunctCalls;
+
     [Header("Popus UI")]
     [SerializeField] private GameObject MainPopup_Object;
 
@@ -111,7 +113,18 @@ public class UIManager : MonoBehaviour
     private bool isExit = false;
     private bool isMenu = false;
 
-
+    private void Awake()
+    {
+        // Make sure jsFunctCalls is assigned before using it
+        if (jsFunctCalls != null)
+        {
+            jsFunctCalls.RegisterVisibilityListener(gameObject.name);
+        }
+        else
+        {
+            Debug.LogWarning("jsFunctCalls reference is null in Awake()");
+        }
+    }
     private void Start()
     {
         if (SkipWinAnimation) SkipWinAnimation.onClick.RemoveAllListeners();
@@ -632,5 +645,20 @@ public class UIManager : MonoBehaviour
         {
             Debug.LogError("Error downloading image: " + request.error);
         }
+    }
+    public void OnFocusChanged(string value)
+    {
+        bool focused = value == "1";
+        if (focused)
+        {
+            audioController.ToggleMute(false, "music");
+            audioController.ToggleMute(false, "sound");
+        }
+        else
+        {
+            audioController.ToggleMute(true, "music");
+            audioController.ToggleMute(true, "sound");
+        }
+        //socketManager?.HandleFusChanocge(focused);
     }
 }

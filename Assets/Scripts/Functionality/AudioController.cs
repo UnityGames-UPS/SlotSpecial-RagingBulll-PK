@@ -16,37 +16,41 @@ public class AudioController : MonoBehaviour
 
     private void Start()
     {
-       // if (bg_adudio) bg_adudio.Play();
+        // if (bg_adudio) bg_adudio.Play();
         PlayBGAudio(false);
-        audioPlayer_button.clip = clips[clips.Length - 1];
-        audioSpin_button.clip = clips[clips.Length - 2];
+        audioPlayer_button.clip = clips[6];
+        audioSpin_button.clip = clips[5];
     }
 
-    void RecieveReactNativeAudioChanges(bool focus){
-      #if UNITY_WEBGL && !UNITY_EDITOR
+    void RecieveReactNativeAudioChanges(bool focus)
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
       Application.ExternalEval(@"
         if(window.ReactNativeWebView){
           window.ReactNativeWebView.postMessage('Called ReactNative Audio Changes Method.');
         }
       ");
-      #endif
-      
-      if(focus){
-        if (!bg_adudio.mute) bg_adudio.UnPause();
-        if (slotBehaviour.IsSpinning)
+#endif
+
+        if (focus)
         {
-            if (!audioPlayer_wl.mute) audioPlayer_wl.UnPause();
+            if (!bg_adudio.mute) bg_adudio.UnPause();
+            if (slotBehaviour.IsSpinning)
+            {
+                if (!audioPlayer_wl.mute) audioPlayer_wl.UnPause();
+            }
+            else
+            {
+                StopWLAaudio();
+            }
+            if (!audioPlayer_button.mute) audioPlayer_button.UnPause();
         }
         else
         {
-            StopWLAaudio();
+            bg_adudio.Pause();
+            audioPlayer_wl.Pause();
+            audioPlayer_button.Pause();
         }
-        if (!audioPlayer_button.mute) audioPlayer_button.UnPause();
-      }else{
-        bg_adudio.Pause();
-        audioPlayer_wl.Pause();
-        audioPlayer_button.Pause();
-      }
     }
 
     internal void CheckFocusFunction(bool focus, bool IsSpinning)
@@ -74,7 +78,7 @@ public class AudioController : MonoBehaviour
 
     internal void SwitchBGSound(bool isbonus)
     {
-        if(isbonus)
+        if (isbonus)
         {
             if (bg_audioBonus) bg_audioBonus.enabled = true;
             if (bg_adudio) bg_adudio.enabled = false;
@@ -88,6 +92,7 @@ public class AudioController : MonoBehaviour
 
     internal void PlayWLAudio(string type)
     {
+        Debug.Log("678" + type);
         audioPlayer_wl.loop = false;
         int index = 0;
         switch (type)
@@ -107,6 +112,24 @@ public class AudioController : MonoBehaviour
             case "megaWin":
                 index = 4;
                 break;
+            case "bullBonus":
+                index = 8;
+                Debug.Log("bull audio type: " + type);
+                break;
+            case "coin":
+                index = 7;
+                break;
+            case "baseWin":
+                index = 9;
+                break;
+            case "bull":
+                index = 10;
+                Debug.Log("bull audio type: " + type);
+                break;
+            default:
+                index = 0; // default clip
+                break;
+
         }
         StopWLAaudio();
         audioPlayer_wl.clip = clips[index];
@@ -132,7 +155,7 @@ public class AudioController : MonoBehaviour
     internal void PlayBGAudio(bool FreespinBG)
     {
         if (bg_adudio) bg_adudio.clip = FreespinBG ? BgClips[1] : BgClips[0];
-        bg_adudio.Play();     
+        bg_adudio.Play();
     }
     internal void ToggleMute(bool toggle, string type)
     {

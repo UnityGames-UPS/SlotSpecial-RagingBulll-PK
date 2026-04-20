@@ -42,8 +42,11 @@ public class BonusController : MonoBehaviour
         slotManager.MystryChoice_Text.text = "Mystry Choice";
         slotManager.MysrtryMultiplier_Text.text = "Mystry Multiplier";
         slotManager.MysrtryNumber_Text.text = "";
-
+        Debug.Log("^^^.    7");
+        slotManager.ToggleButtonGrp(false);
+        slotManager.AutoSpin_Button.interactable = false;
         yield return new WaitUntil(() => IsWildSelected == true);
+        _audioManager.PlayWLAudio("bull");
         BigBullAnimationPanel.SetActive(true);
         yield return new WaitForSeconds(2.8f);
 
