@@ -602,6 +602,7 @@ public class UIManager : MonoBehaviour
 
     private void OpenPopup(GameObject Popup)
     {
+        CloseAllPanels();
         if (audioController) audioController.PlayButtonAudio();
 
         if (Popup) Popup.SetActive(true);
@@ -660,5 +661,23 @@ public class UIManager : MonoBehaviour
             audioController.ToggleMute(true, "sound");
         }
         //socketManager?.HandleFusChanocge(focused);
+    }
+    private void CloseAllPanels()
+    {
+        // Close all popup objects
+        if (WinPopup_Object && WinPopup_Object.activeSelf) WinPopup_Object.SetActive(false);
+        //   if (DisconnectPopup_Object && DisconnectPopup_Object.activeSelf) DisconnectPopup_Object.SetActive(false);
+        //  if (ReconnectPopup_Object && ReconnectPopup_Object.activeSelf) ReconnectPopup_Object.SetActive(false);
+        // if (ADPopup_Object && ADPopup_Object.activeSelf) ADPopup_Object.SetActive(false);
+        if (LBPopup_Object && LBPopup_Object.activeSelf) LBPopup_Object.SetActive(false);
+        if (Settings_Object && Settings_Object.activeSelf) Settings_Object.SetActive(false);
+        if (PaytableMenuObject && PaytableMenuObject.activeSelf) PaytableMenuObject.SetActive(false);
+        if (QuitMenuObject && QuitMenuObject.activeSelf) QuitMenuObject.SetActive(false);
+
+        // Close menu if open
+        // if (isMenu)
+        // {
+        //     OpenCloseMenu(false);
+        // }
     }
 }
