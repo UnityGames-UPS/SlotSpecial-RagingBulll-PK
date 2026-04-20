@@ -1102,6 +1102,7 @@ public class SlotBehaviour : MonoBehaviour
 
     internal void CheckWinPopups()
     {
+
         Debug.Log("@@@@@ win Amount :" + SocketManager.resultData.payload.winAmount);
         double WinningAmount = SocketManager.resultData.payload.winAmount;
         if (WinningAmount >= currentTotalBet * 5 && WinningAmount < currentTotalBet * 10)

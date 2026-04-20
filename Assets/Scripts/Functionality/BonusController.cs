@@ -72,6 +72,7 @@ public class BonusController : MonoBehaviour
         if (IsfreeSpin && FreeSpinTotalWin > 0)
         {
             // Debug.Log("@@@@ Game end routie called" + FreeSpinTotalWin);
+            uiManager.CloseAllPanels();
             MainPopup_Panel.SetActive(true);
             BonusWinPopup_Object.SetActive(true);
             double currentValue = 0;

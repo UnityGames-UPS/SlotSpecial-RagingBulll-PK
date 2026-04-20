@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private RectTransform MusicToggle_RT;
 
     [Header("Paytable Objects")]
-    [SerializeField] private GameObject PaytableMenuObject;
+    [SerializeField] internal GameObject PaytableMenuObject;
     [SerializeField] private Button Paytable_Button;
     [SerializeField] private Button PaytableClose_Button;
     [SerializeField] private Button PaytableLeft_Button;
@@ -425,6 +425,7 @@ public class UIManager : MonoBehaviour
 
     internal void PopulateWin(int value, double winAmount)
     {
+        ClosePopup(PaytableMenuObject);
         Debug.Log($" Populated Win :" + value);
         switch (value)
         {
@@ -486,6 +487,7 @@ public class UIManager : MonoBehaviour
     }
     private void StartPopupAnim(double amount)
     {
+        CloseAllPanels();
         if (WinPopup_Object) WinPopup_Object.SetActive(true);
         if (MainPopup_Object) MainPopup_Object.SetActive(true);
 
@@ -609,7 +611,7 @@ public class UIManager : MonoBehaviour
         if (MainPopup_Object) MainPopup_Object.SetActive(true);
     }
 
-    private void ClosePopup(GameObject Popup)
+    internal void ClosePopup(GameObject Popup)
     {
         if (audioController) audioController.PlayButtonAudio();
         if (Popup) Popup.SetActive(false);
@@ -617,6 +619,7 @@ public class UIManager : MonoBehaviour
         {
             if (MainPopup_Object) MainPopup_Object.SetActive(false);
         }
+        CloseAllPanels();
     }
 
     private void UrlButtons(string url)
@@ -662,7 +665,7 @@ public class UIManager : MonoBehaviour
         }
         //socketManager?.HandleFusChanocge(focused);
     }
-    private void CloseAllPanels()
+    internal void CloseAllPanels()
     {
         // Close all popup objects
         if (WinPopup_Object && WinPopup_Object.activeSelf) WinPopup_Object.SetActive(false);
