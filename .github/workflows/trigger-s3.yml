@@ -8,7 +8,7 @@ on:
 
 jobs:
   call-reusable:
-    uses: UnityGames-UPS/unity-build-pipeline/.github/workflows/dev-test.yaml@main
+    uses: UnityGames-UPS/unity-build-pipeline/.github/workflows/dev-test.yml@main
     with:
       s3_bucket: unity.build-dev-test
       s3_folder: SL-RB
